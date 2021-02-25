@@ -1,0 +1,1076 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HttpRunner V3.x中文文档">
+      
+      
+      
+        <meta name="author" content="在路上">
+      
+      
+        <link rel="canonical" href="https://www.ontheway.cool/HttpRunner3DocsForCN/concepts/parameters/">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>参数化数据驱动 - HttpRunner V3.x中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-36723568-3","mkdocs.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://www.ontheway.cool/HttpRunner3DocsForCN/" title="HttpRunner V3.x中文文档" class="md-header-nav__button md-logo" aria-label="HttpRunner V3.x中文文档">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            HttpRunner V3.x中文文档
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              参数化数据驱动
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://www.ontheway.cool/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    在路上的博客
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.ontheway.cool/HttpRunner3DocsForCN/" title="HttpRunner V3.x中文文档" class="md-nav__button md-logo" aria-label="HttpRunner V3.x中文文档">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    HttpRunner V3.x中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://www.ontheway.cool/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    在路上的博客
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      介绍
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../install/" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../scaffold/" class="md-nav__link">
+      快速开始(脚手架)
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      基础概念
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="基础概念" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        基础概念
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../step_case_suite/" class="md-nav__link">
+      名词解释(step/case/suite)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../debugtalk.py/" class="md-nav__link">
+      debugtalk.py
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../param_priority/" class="md-nav__link">
+      变量优先级
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../structure/" class="md-nav__link">
+      项目结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../testcase_structure/" class="md-nav__link">
+      测试用例结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../hook/" class="md-nav__link">
+      hook机制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../dot-env/" class="md-nav__link">
+      环境变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../testcase-layer/" class="md-nav__link">
+      测试用例分层
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        参数化数据驱动
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      参数化数据驱动
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testsuite" class="md-nav__link">
+    测试用例集(testsuite)准备
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参数配置概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参数详细配置
+  </a>
+  
+    <nav class="md-nav" aria-label="参数详细配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    独立参数&amp;直接指定参数列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    关联参数&amp;直接指定参数列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv" class="md-nav__link">
+    独立参数 &amp; 引用CSV文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv_1" class="md-nav__link">
+    关联参数&amp;引用CSV文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    独立参数 &amp; 引用自定义函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    关联参数 &amp; 引用自定义函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    参数化运行
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../security/" class="md-nav__link">
+      信息安全
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../upload-case/" class="md-nav__link">
+      文件上传场景
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    
+    <label class="md-nav__link" for="nav-5">
+      用户引导
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="用户引导" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        用户引导
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../user_guide/record%26generate%20testcase/" class="md-nav__link">
+      录制&生成测试用例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../user_guide/write_testcase/" class="md-nav__link">
+      编写测试用例(python)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../user_guide/run_testcase/" class="md-nav__link">
+      运行测试用例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../user_guide/testing_report/" class="md-nav__link">
+      测试报告
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../user_guide/run_load_test/" class="md-nav__link">
+      执行性能测试
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testsuite" class="md-nav__link">
+    测试用例集(testsuite)准备
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参数配置概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参数详细配置
+  </a>
+  
+    <nav class="md-nav" aria-label="参数详细配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    独立参数&amp;直接指定参数列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    关联参数&amp;直接指定参数列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv" class="md-nav__link">
+    独立参数 &amp; 引用CSV文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv_1" class="md-nav__link">
+    关联参数&amp;引用CSV文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    独立参数 &amp; 引用自定义函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    关联参数 &amp; 引用自定义函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    参数化运行
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">参数化数据驱动</h1>
+<h2 id="_2">介绍</h2>
+<p>在自动化测试中，经常会遇到如下场景：</p>
+<ul>
+<li>测试搜索功能，只有一个搜索输入框，但有10种不同类型的搜索关键字；</li>
+<li>测试账号登录功能，需要输入用户名和密码，按照等价类划分后有20种组合情况。</li>
+</ul>
+<p>这里只是随意找了两个典型的例子，相信大家都有遇到过很多类似的场景。总结下来，就是我们的自动化脚本中存在参数，并且我们需要采用不同的参数去运行。</p>
+<p>经过概括，参数基本上分为两种类型：
+* 单个独立参数：例如前面的第一种场景，我们只需要变换搜索关键字这一个参数。
+* 多个具有关联性的参数：例如登录场景，我们需要变换名用户和密码两个参数，并且这两个参数需要关联组合。</p>
+<p>然后，对于参数而言，我们可能具有一个参数列表，在脚本运行时需要按照不同的规则去取值，例如顺序取值、随机取值、循环取值等。</p>
+<p>这就是典型的参数化和数据驱动。</p>
+<p>如需了解 HttpRunner 参数化数据驱动机制的实现原理和技术细节，可前往阅读<a href="https://debugtalk.com/post/httprunner-data-driven/">《HttpRunner 实现参数化数据驱动机制》</a> 。</p>
+<h2 id="testsuite">测试用例集(testsuite)准备</h2>
+<p>HttpRunner v3.x开始，测试用例和测试用例集都可以实现参数化数据驱动，需要使用parameters关键字，定义参数名称并指定数据源取值方式。</p>
+<p>如果让测试用例(testcase)的概念更纯粹，可以考虑将参数化的功能在testsuite中实现。</p>
+<p>创建一个 testsuite，在 testsuite 中引用测试用例，并定义参数化配置。</p>
+<p>测试用例集（testsuite）的格式如下所示：</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  variables:  # testsuite config variables
+    foo1: config_bar1
+    foo2: config_bar2
+    expect_foo1: config_bar1
+    expect_foo2: config_bar2
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  variables:  # testcase variables
+    uid: 1000
+    var_c: ${gen_random_string(5)}
+  parameters:
+    uid: [101, 102, 103]
+    var_c: [&quot;demo1&quot;, &quot;demo2&quot;, &quot;demo3&quot;]
+  testcase: /path/to/testcase1
+
+</code></pre>
+<h2 id="_3">参数配置概述</h2>
+<p>如需对某测试用例(testcase)实现参数化数据驱动，需要使用parameters关键字，定义参数名称并指定数据源取值方式。</p>
+<p>参数名称的定义分为两种情况：
+* 独立参数单独进行定义；
+* 多个参数具有关联性的参数需要将其定义在一起，采用短横线(-)进行链接。</p>
+<p>数据源支持三种方式：
+* 脚本中直接指定参数列表：该种方式最为简单易用，适合参数列表比较小的情况。
+示例：</p>
+<pre><code class="language-yaml">  parameters:
+    uid: [101, 102, 103]
+    username-password:
+      - [ &quot;user1&quot;, &quot;111111&quot; ]
+      - [ &quot;user2&quot;, &quot;222222&quot; ]
+      - [ &quot;user3&quot;, &quot;333333&quot; ]
+</code></pre>
+<ul>
+<li>通过内置的parameterize(可简写为P)函数引用CSV文件：该种方式需要准备CSV数据文件，适合数据量比较大的情况。
+示例：</li>
+</ul>
+<pre><code class="language-yaml">  parameters:
+    apkchannel: ${P(data/vip.csv)} 
+</code></pre>
+<ul>
+<li>在debugtalk.py中自定义的函数生成参数列表：该种方式最为灵活，可通过自定义Python函数实现任意场景的数据驱动机制，当需要动态生成参数列表时也需要选择该种方式。
+示例：</li>
+</ul>
+<pre><code class="language-yaml">  parameters:
+    username-password: ${get_account(10)}
+</code></pre>
+<p>三种方式可根据实际项目需求进行灵活选择，同时支持多种方式的组合使用。加入测试用例中定义了多个参数，那么测试用例在运行时会对参数进行笛卡尔积组合，覆盖所有参数组合情况。</p>
+<h2 id="_4">参数详细配置</h2>
+<p>将参数名称定义和数据源指定方式进行组合，共有6中形式。先分别针对每一类情况进行详细说明。</p>
+<h3 id="_5">独立参数&amp;直接指定参数列表</h3>
+<p>对于参数列表比较小的情况，组u ii简单的方式是直接在YAML/JSON中指定参数列表内容。</p>
+<p>例如，对于独立参数uid,参数列表为[1001, 1002, 1003, 1004]，那么就可以按照如下方式进行配置:</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  parameters:
+    uid: [1001, 1002, 1003, 1004]
+  testcase: /path/to/testcase1
+
+</code></pre>
+<p>进行该配置后，测试用例在运行时就会对uid实现数据驱动，即分别使用[1001, 1002, 1003, 1004]四个值运行测试用例。</p>
+<h3 id="_6">关联参数&amp;直接指定参数列表</h3>
+<p>对于具有关联性的多个参数，比如username和password，那么可以按照如下方式进行配置：</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  parameters:
+    username-password:
+      - [ &quot;user1&quot;, &quot;111111&quot; ]
+      - [ &quot;user2&quot;, &quot;222222&quot; ]
+      - [ &quot;user3&quot;, &quot;333333&quot; ]
+  testcase: /path/to/testcase1
+
+</code></pre>
+<p>进行该配置后，测试用例在运行时就会对username和password实现数据驱动，即分别使用 <code>{"username": "user1", "password": "111111"}、{"username": "user2", "password": "222222"}、{"username": "user3", "password": "333333"}</code> 运行 3 次测试，并且保证参数值总是成对使用。</p>
+<h3 id="csv">独立参数 &amp; 引用CSV文件</h3>
+<p>对于已有参数列表，并且数据量比较大的情况，比较适合的方式是将参数列表值存储在 CSV 数据文件中。</p>
+<p>对于 CSV 数据文件，需要遵循如下几项约定的规则：</p>
+<ul>
+<li>CSV 文件中的第一行必须为参数名称，从第二行开始为参数值，每个（组）值占一行；</li>
+<li>若同一个 CSV 文件中具有多个参数，则参数名称和数值的间隔符需实用英文逗号；</li>
+<li>在 YAML/JSON 文件引用 CSV 文件时，文件路径为基于项目根目录（debugtalk.py 所在路径）的相对路径。</li>
+</ul>
+<p>例如，user_id 的参数取值范围为 1001～2000，那么我们就可以创建 user_id.csv，并且在文件中按照如下形式进行描述。</p>
+<pre><code class="language-csv">user_id
+1001
+1002
+...
+1999
+2000
+</code></pre>
+<p>然后在 YAML/JSON 测试用例文件中，就可以通过内置的 parameterize（可简写为 P）函数引用 CSV 文件。</p>
+<p>假设项目的根目录下有 data 文件夹，user_id.csv 位于其中，那么 user_id.csv 的引用描述如下：</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  parameters:
+    user_id: ${P(data/user_id.csv)}
+  testcase: /path/to/testcase1
+</code></pre>
+<p>即 P 函数的参数（CSV 文件路径）是相对于项目根目录的相对路径。当然，这里也可以使用 CSV 文件在系统中的绝对路径，不过这样的话在项目路径变动时就会出现问题，因此推荐使用相对路径的形式。</p>
+<h3 id="csv_1">关联参数&amp;引用CSV文件</h3>
+<p>对于具有关联性的多个参数，例如 username 和 password，那么就可以创建 account.csv，并在文件中按照如下形式进行描述。</p>
+<pre><code class="language-csv">username,password
+test1,111111
+test2,222222
+test3,333333
+</code></pre>
+<p>然后在 YAML/JSON 测试用例文件中，就可以通过内置的 parameterize（可简写为 P）函数引用 CSV 文件。</p>
+<p>假设项目的根目录下有 data 文件夹，account.csv 位于其中，那么 account.csv 的引用描述如下：</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  parameters:
+    username-password: ${P(data/account.csv)}
+  testcase: /path/to/testcase1
+
+</code></pre>
+<p>需要说明的是，在 parameters 中指定的参数名称必须与 CSV 文件中第一行的参数名称一致，顺序可以不一致，参数个数也可以不一致。</p>
+<p>例如，在 account.csv 文件中可以包含多个参数，username、password、phone、age：</p>
+<pre><code class="language-csv">username,password,phone,age
+test1,111111,18600000001,21
+test2,222222,18600000002,22
+test3,333333,18600000003,23
+</code></pre>
+<p>而在 YAML/JSON 测试用例文件中指定参数时，可以只使用部分参数，并且参数顺序无需与 CSV 文件中参数名称的顺序一致。</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  parameters:
+    phone-username: ${P(account.csv)}
+  testcase: /path/to/testcase1
+
+</code></pre>
+<h3 id="_7">独立参数 &amp; 引用自定义函数</h3>
+<p>对于没有现成参数列表，或者需要更灵活的方式动态生成参数的情况，可以通过在 debugtalk.py 中自定义函数生成参数列表，并在 YAML/JSON 引用自定义函数的方式。</p>
+<p>例如，若需对 user_id 进行参数化数据驱动，参数取值范围为 1001～1004，那么就可以在 debugtalk.py 中定义一个函数，返回参数列表。</p>
+<pre><code class="language-python">def get_user_id():
+    return [
+        {&quot;user_id&quot;: 1001},
+        {&quot;user_id&quot;: 1002},
+        {&quot;user_id&quot;: 1003},
+        {&quot;user_id&quot;: 1004}
+    ]
+</code></pre>
+<p>然后，在 YAML/JSON 的 parameters 中就可以通过调用自定义函数的形式来指定数据源。</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  parameters:
+    user_id: ${get_user_id()}
+  testcase: /path/to/testcase1
+
+</code></pre>
+<p>另外，通过函数的传参机制，还可以实现更灵活的参数生成功能，在调用函数时指定需要生成的参数个数。</p>
+<h3 id="_8">关联参数 &amp; 引用自定义函数</h3>
+<p>对于具有关联性的多个参数，实现方式也类似。
+例如，在debugtalk.py中定义函数get_account，生成指定数量的账号密码参数列表。</p>
+<pre><code class="language-python">def get_account(num):
+    accounts = []
+    for index in range(1, num+1):
+        accounts.append(
+            {&quot;username&quot;: &quot;user%s&quot; % index, &quot;password&quot;: str(index) * 6},
+        )
+
+    return accounts
+</code></pre>
+<p>在YAML/JSON的parameters中就可以调用自定义函数生成指定数量的参数列表</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  parameters:
+    username-password: ${get_account(10)}
+  testcase: /path/to/testcase1
+
+</code></pre>
+<blockquote>
+<p>需要注意的是，在自定义函数中，生成的参数列表必须为 list of dict 的数据结构，该设计主要是为了与 CSV 文件的处理机制保持一致。</p>
+</blockquote>
+<h2 id="_9">参数化运行</h2>
+<p>完成以上参数定义和数据源准备工作之后，参数化运行与普通测试用例的运行完全一致。
+采用hrun命令运行自动化测试：</p>
+<pre><code class="language-shell">$ hrun tests/data/demo_parameters.yml
+</code></pre>
+<p>采用 locusts 命令运行性能测试：</p>
+<pre><code class="language-shell">$ locusts -f tests/data/demo_parameters.yml
+</code></pre>
+<p>区别在于，自动化测试时遍历一遍后会终止执行，性能测试时每个并发用户都会循环遍历所有参数。</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../testcase-layer/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                测试用例分层
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../security/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                信息安全
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020-2021 在路上
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+    
+  </body>
+</html>

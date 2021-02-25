@@ -1,0 +1,851 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HttpRunner V3.x中文文档">
+      
+      
+      
+        <meta name="author" content="在路上">
+      
+      
+        <link rel="canonical" href="https://www.ontheway.cool/HttpRunner3DocsForCN/user_guide/run_load_test/">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>执行性能测试 - HttpRunner V3.x中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-36723568-3","mkdocs.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://www.ontheway.cool/HttpRunner3DocsForCN/" title="HttpRunner V3.x中文文档" class="md-header-nav__button md-logo" aria-label="HttpRunner V3.x中文文档">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            HttpRunner V3.x中文文档
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              执行性能测试
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://www.ontheway.cool/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    在路上的博客
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.ontheway.cool/HttpRunner3DocsForCN/" title="HttpRunner V3.x中文文档" class="md-nav__button md-logo" aria-label="HttpRunner V3.x中文文档">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    HttpRunner V3.x中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://www.ontheway.cool/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    在路上的博客
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      介绍
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../install/" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../scaffold/" class="md-nav__link">
+      快速开始(脚手架)
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    
+    <label class="md-nav__link" for="nav-4">
+      基础概念
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="基础概念" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        基础概念
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/step_case_suite/" class="md-nav__link">
+      名词解释(step/case/suite)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/debugtalk.py/" class="md-nav__link">
+      debugtalk.py
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/param_priority/" class="md-nav__link">
+      变量优先级
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/structure/" class="md-nav__link">
+      项目结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/testcase_structure/" class="md-nav__link">
+      测试用例结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/hook/" class="md-nav__link">
+      hook机制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/dot-env/" class="md-nav__link">
+      环境变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/testcase-layer/" class="md-nav__link">
+      测试用例分层
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/parameters/" class="md-nav__link">
+      参数化数据驱动
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/security/" class="md-nav__link">
+      信息安全
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/upload-case/" class="md-nav__link">
+      文件上传场景
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      用户引导
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="用户引导" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        用户引导
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../record%26generate%20testcase/" class="md-nav__link">
+      录制&生成测试用例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../write_testcase/" class="md-nav__link">
+      编写测试用例(python)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../run_testcase/" class="md-nav__link">
+      运行测试用例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../testing_report/" class="md-nav__link">
+      测试报告
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        执行性能测试
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      执行性能测试
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#locust" class="md-nav__link">
+    启动locust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    注意事项
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locust_1" class="md-nav__link">
+    locust所有功能
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#locust" class="md-nav__link">
+    启动locust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    注意事项
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locust_1" class="md-nav__link">
+    locust所有功能
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">执行压力测试</h1>
+<blockquote>
+<p>HttpRunner3.1.0集成性能测试</p>
+</blockquote>
+<p>通过重复使用<a href="http://locust.io/">Locust</a>，您可以进行负载测试，而无需进行额外的工作。</p>
+<pre><code class="language-shell">$ locusts -V                                                                 
+locust 1.0.3
+</code></pre>
+<p>为了充分利用它们，您可以运行locusts -h来查看帮助，并且您会发现它与locust -h相同。</p>
+<h2 id="locust">启动locust</h2>
+<p>唯一的区别是<code>-f /-locustfile</code>参数。 当使用<code>YAML/JSON</code>测试用例文件指定-f时，它将首先转换为pytest，然后使用HttpRunner的内置locustfile（httprunner/ext/locust/locustfile.py）运行负载测试。</p>
+<pre><code class="language-shell">$ locusts -f examples/postman_echo/request_methods/request_with_variables.yml
+2020-06-18 18:14:29.877 | INFO     | httprunner.make:make_testcase:317 - start to make testcase: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/examples/postman_echo/request_methods/request_with_variables.yml
+2020-06-18 18:14:29.878 | INFO     | httprunner.make:make_testcase:390 - generated testcase: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/examples/postman_echo/request_methods/request_with_variables_test.py
+2020-06-18 18:14:29.878 | INFO     | httprunner.make:format_pytest_with_black:154 - format pytest cases with black ...
+reformatted /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/examples/postman_echo/request_methods/request_with_variables_test.py
+All done! ✨ 🍰 ✨
+1 file reformatted, 1 file left unchanged.
+[2020-06-18 18:14:30,241] LeodeMacBook-Pro.local/INFO/locust.main: Starting web interface at http://:8089
+[2020-06-18 18:14:30,249] LeodeMacBook-Pro.local/INFO/locust.main: Starting Locust 1.0.3
+</code></pre>
+<h2 id="_2">注意事项</h2>
+<p>YAML性能测试脚本，当使用locusts执行性能测试时，config 中 parameters中的变量需要在variables声明，否则会发生Error：参数找不到。
+<img alt="img_3.png" src="../img_3.png" /></p>
+<h2 id="locust_1">locust所有功能</h2>
+<p>在这种情况下，您可以使用Locust的所有功能。</p>
+<pre><code class="language-shell">$ locusts -h                                                                 
+Usage: locust [OPTIONS] [UserClass ...]
+
+Common options:
+  -h, --help            show this help message and exit
+  -f LOCUSTFILE, --locustfile LOCUSTFILE
+                        Python module file to import, e.g. '../other.py'.
+                        Default: locustfile
+  --config CONFIG       Config file path
+  -H HOST, --host HOST  Host to load test in the following format:
+                        http://10.21.32.33
+  -u NUM_USERS, --users NUM_USERS
+                        Number of concurrent Locust users. Only used together
+                        with --headless
+  -r HATCH_RATE, --hatch-rate HATCH_RATE
+                        The rate per second in which users are spawned. Only
+                        used together with --headless
+  -t RUN_TIME, --run-time RUN_TIME
+                        Stop after the specified amount of time, e.g. (300s,
+                        20m, 3h, 1h30m, etc.). Only used together with
+                        --headless
+  -l, --list            Show list of possible User classes and exit
+
+Web UI options:
+  --web-host WEB_HOST   Host to bind the web interface to. Defaults to '*'
+                        (all interfaces)
+  --web-port WEB_PORT, -P WEB_PORT
+                        Port on which to run web host
+  --headless            Disable the web interface, and instead start the load
+                        test immediately. Requires -u and -t to be specified.
+  --web-auth WEB_AUTH   Turn on Basic Auth for the web interface. Should be
+                        supplied in the following format: username:password
+  --tls-cert TLS_CERT   Optional path to TLS certificate to use to serve over
+                        HTTPS
+  --tls-key TLS_KEY     Optional path to TLS private key to use to serve over
+                        HTTPS
+
+Master options:
+  Options for running a Locust Master node when running Locust distributed. A Master node need Worker nodes that connect to it before it can run load tests.
+
+  --master              Set locust to run in distributed mode with this
+                        process as master
+  --master-bind-host MASTER_BIND_HOST
+                        Interfaces (hostname, ip) that locust master should
+                        bind to. Only used when running with --master.
+                        Defaults to * (all available interfaces).
+  --master-bind-port MASTER_BIND_PORT
+                        Port that locust master should bind to. Only used when
+                        running with --master. Defaults to 5557.
+  --expect-workers EXPECT_WORKERS
+                        How many workers master should expect to connect
+                        before starting the test (only when --headless used).
+
+Worker options:
+
+  Options for running a Locust Worker node when running Locust distributed. 
+  Only the LOCUSTFILE (-f option) need to be specified when starting a Worker, since other options such as -u, -r, -t are specified on the Master node.
+
+  --worker              Set locust to run in distributed mode with this
+                        process as worker
+  --master-host MASTER_HOST
+                        Host or IP address of locust master for distributed
+                        load testing. Only used when running with --worker.
+                        Defaults to 127.0.0.1.
+  --master-port MASTER_PORT
+                        The port to connect to that is used by the locust
+                        master for distributed load testing. Only used when
+                        running with --worker. Defaults to 5557.
+
+Tag options:
+  Locust tasks can be tagged using the @tag decorator. These options let specify which tasks to include or exclude during a test.
+
+  -T [TAG [TAG ...]], --tags [TAG [TAG ...]]
+                        List of tags to include in the test, so only tasks
+                        with any matching tags will be executed
+  -E [TAG [TAG ...]], --exclude-tags [TAG [TAG ...]]
+                        List of tags to exclude from the test, so only tasks
+                        with no matching tags will be executed
+
+Request statistics options:
+  --csv CSV_PREFIX      Store current request stats to files in CSV format.
+                        Setting this option will generate three files:
+                        [CSV_PREFIX]_stats.csv, [CSV_PREFIX]_stats_history.csv
+                        and [CSV_PREFIX]_failures.csv
+  --csv-full-history    Store each stats entry in CSV format to
+                        _stats_history.csv file
+  --print-stats         Print stats in the console
+  --only-summary        Only print the summary stats
+  --reset-stats         Reset statistics once hatching has been completed.
+                        Should be set on both master and workers when running
+                        in distributed mode
+
+Logging options:
+  --skip-log-setup      Disable Locust's logging setup. Instead, the
+                        configuration is provided by the Locust test or Python
+                        defaults.
+  --loglevel LOGLEVEL, -L LOGLEVEL
+                        Choose between DEBUG/INFO/WARNING/ERROR/CRITICAL.
+                        Default is INFO.
+  --logfile LOGFILE     Path to log file. If not set, log will go to
+                        stdout/stderr
+
+Step load options:
+  --step-load           Enable Step Load mode to monitor how performance
+                        metrics varies when user load increases. Requires
+                        --step-users and --step-time to be specified.
+  --step-users STEP_USERS
+                        User count to increase by step in Step Load mode. Only
+                        used together with --step-load
+  --step-time STEP_TIME
+                        Step duration in Step Load mode, e.g. (300s, 20m, 3h,
+                        1h30m, etc.). Only used together with --step-load
+
+Other options:
+  --show-task-ratio     Print table of the User classes' task execution ratio
+  --show-task-ratio-json
+                        Print json data of the User classes' task execution
+                        ratio
+  --version, -V         Show program's version number and exit
+  --exit-code-on-error EXIT_CODE_ON_ERROR
+                        Sets the process exit code to use when a test result
+                        contain any failure or error
+  -s STOP_TIMEOUT, --stop-timeout STOP_TIMEOUT
+                        Number of seconds to wait for a simulated user to
+                        complete any executing task before exiting. Default is
+                        to terminate immediately. This parameter only needs to
+                        be specified for the master process when running
+                        Locust distributed.
+
+User classes:
+  UserClass             Optionally specify which User classes that should be
+                        used (available User classes can be listed with -l or
+                        --list)
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../testing_report/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                测试报告
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020-2021 在路上
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+    
+  </body>
+</html>

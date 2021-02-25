@@ -1,0 +1,1152 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HttpRunner V3.x中文文档">
+      
+      
+      
+        <meta name="author" content="在路上">
+      
+      
+        <link rel="canonical" href="https://www.ontheway.cool/HttpRunner3DocsForCN/user_guide/run_testcase/">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>运行测试用例 - HttpRunner V3.x中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-36723568-3","mkdocs.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://www.ontheway.cool/HttpRunner3DocsForCN/" title="HttpRunner V3.x中文文档" class="md-header-nav__button md-logo" aria-label="HttpRunner V3.x中文文档">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            HttpRunner V3.x中文文档
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              运行测试用例
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://www.ontheway.cool/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    在路上的博客
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.ontheway.cool/HttpRunner3DocsForCN/" title="HttpRunner V3.x中文文档" class="md-nav__button md-logo" aria-label="HttpRunner V3.x中文文档">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    HttpRunner V3.x中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://www.ontheway.cool/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    在路上的博客
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      介绍
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../install/" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../scaffold/" class="md-nav__link">
+      快速开始(脚手架)
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    
+    <label class="md-nav__link" for="nav-4">
+      基础概念
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="基础概念" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        基础概念
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/step_case_suite/" class="md-nav__link">
+      名词解释(step/case/suite)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/debugtalk.py/" class="md-nav__link">
+      debugtalk.py
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/param_priority/" class="md-nav__link">
+      变量优先级
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/structure/" class="md-nav__link">
+      项目结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/testcase_structure/" class="md-nav__link">
+      测试用例结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/hook/" class="md-nav__link">
+      hook机制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/dot-env/" class="md-nav__link">
+      环境变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/testcase-layer/" class="md-nav__link">
+      测试用例分层
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/parameters/" class="md-nav__link">
+      参数化数据驱动
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/security/" class="md-nav__link">
+      信息安全
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/upload-case/" class="md-nav__link">
+      文件上传场景
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      用户引导
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="用户引导" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        用户引导
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../record%26generate%20testcase/" class="md-nav__link">
+      录制&生成测试用例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../write_testcase/" class="md-nav__link">
+      编写测试用例(python)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        运行测试用例
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      运行测试用例
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    运行用例的各种方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yamljson" class="md-nav__link">
+    运行YAML/JSON格式的测试用例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytest" class="md-nav__link">
+    运行pytest用例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    执行日志
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idrequest-id" class="md-nav__link">
+    测试用例ID和Request ID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-server-ipport" class="md-nav__link">
+    Client &amp; Server IP:PORT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v2x" class="md-nav__link">
+    v2.x兼容性的参数
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../testing_report/" class="md-nav__link">
+      测试报告
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../run_load_test/" class="md-nav__link">
+      执行性能测试
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    运行用例的各种方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yamljson" class="md-nav__link">
+    运行YAML/JSON格式的测试用例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytest" class="md-nav__link">
+    运行pytest用例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    执行日志
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idrequest-id" class="md-nav__link">
+    测试用例ID和Request ID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-server-ipport" class="md-nav__link">
+    Client &amp; Server IP:PORT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v2x" class="md-nav__link">
+    v2.x兼容性的参数
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">运行测试用例</h1>
+<p>测试用例准备好后，运行<code>hrun</code>执行测试用例。
+注意：<code>hrun</code>是<code>httprunner run</code>的缩写，他们功能一样。</p>
+<pre><code class="language-python">hrun = httprunner run
+</code></pre>
+<h2 id="_2">运行用例的各种方式</h2>
+<p>（1）运行指定路径的用例</p>
+<pre><code class="language-shell">hrun path/to/testcase1
+</code></pre>
+<p>（2）指定多个测试用例路径执行</p>
+<pre><code class="language-shell">hrun path/to/testcase1 path/to/testcase2
+</code></pre>
+<p>（3）运行测试项目中所有测试用例
+指定测试项目的绝对路径</p>
+<pre><code class="language-shell">hrun path/to/testcase_folder/
+</code></pre>
+<h2 id="yamljson">运行YAML/JSON格式的测试用例</h2>
+<p>如果测试用例格式是YAML或JSON，<code>hrun</code>先将YAML/JSON转为pytest(python)格式，然后再运行pytest。
+相当于：</p>
+<pre><code class="language-shell">hrun = make + pytest
+</code></pre>
+<p>对于大多数用例，生成的pytest文件和YAML/JSON保存在相同目录下。生成的pytest用例名增加<code>_test</code>后缀，且<code>.yml/yaml/.json</code>替换为<code>.py</code>。</p>
+<pre><code class="language-shell">/path/to/example.yml =&gt; /path/to/example_test.py
+</code></pre>
+<p>然而，如果测试用例目录名或用例文件名包含<code>. - 空格</code>这些字符，这些字符将被<code>_</code>替换，以避免python类中用例引用时的语法错误。
+而且，以数字开头的目录和文件名，将添加<code>T</code>前缀，因为python模块和类名不能以数字开头。</p>
+<pre><code class="language-shell">path 1/a.b-2/3.yml =&gt; path_1/a_b_2/T3_test.py
+</code></pre>
+<h2 id="pytest">运行pytest用例</h2>
+<p>当想运行pytest格式用例 或 YAML/JSON转换后的pytest用例，<code>hrun</code>和<code>pytest</code>都可以使用。
+需要记住的是，<code>hrun</code>只包装了<code>pytest</code>，所以<code>pytest</code>的功能都可以在<code>hrun</code>中使用。</p>
+<pre><code class="language-shell">$ hrun -h
+usage: hrun [options] [file_or_dir] [file_or_dir] [...]
+
+positional arguments:
+  file_or_dir
+
+general:
+  -k EXPRESSION         仅运行与给定字符串表达式匹配的测试。表达式是python可识别的表达式，其中所有名称均为与测试文件名称及其父类进行子字符串匹配。
+                        例如：`-k 'test_method or test_other'` 匹配所有测试方法名和类名包含'test_method' 或 'test_other'的用例。
+                             `-k 'not test_method'` 匹配名称中不包含'test_method'的类。
+                             `-k 'not test_method and not test_other'` 消除匹配项。  
+                        另外，还运行，在其他的关键字匹配中，类和方法名成包含的，以及直接为其分配名称的函数。
+                        匹配不区分大小写。
+
+  -m MARKEXPR           只运行匹配给定表达式匹配的用例。 例如: -m 'mark1 and not mark2'.
+  --markers             显示标记（内置标记，插件标记和只运行一次标记）
+  -x, --exitfirst       遇到error或fail test立即退出.
+  --maxfail=num         在第一个失败用例或错误后退出。
+  --strict-markers, --strict
+                        未在配置文件中&quot;标记&quot;部分注册的标记会引发错误。
+  -c file              从'file'加载配置，而不是加载隐藏的配置文件。
+  --continue-on-collection-errors
+                        即使发生错误，也强制继续执行测试。
+  --rootdir=ROOTDIR     定义测试项目的root目录. 可以是相对路径：'root_dir', './root_dir', 'root_dir/another_dir/'; 绝对路径:
+                        '/home/user/root_dir'; 包含变量的路径: '$HOME/root_dir'.
+  --fixtures, --funcargs
+                        显示可用的fixtures, 按fixture名称排序 (以`_`开头的fixture，只有添加`-v`时才显示)
+  --fixtures-per-test   每次测试都显示fixtures
+  --import-mode={prepend,append}
+                        当import测试模块时, prepend/append到系统环境变量中，默认前置到系统环境变量中。
+  --pdb                 当出现error或强制断开时，启动交互式python调试器.
+  --pdbcls=modulename:classname
+                        针对错误启动自定义交互式python调试器. 例如: --pdbcls=IPython.terminal.debugger:TerminalPdb
+  --trace               每次运行测试时立即跳出
+  --capture=method      每次测试都捕获方法: fd|sys|no|tee-sys的其中之一。
+  -s                    --capture=no的快捷模式.
+  --runxfail            报告xfail标记的测试结果，就像没标记过一样。
+  --lf, --last-failed   仅重新运行最后一次运行失败的测试（如果没有失败的则全部重新运行）
+  --ff, --failed-first  运行所有测试，但先运行最后的失败用例。这可能会导致setup/teardown的重复运行。
+  --nf, --new-first     首先运行新的测试用例，然后其余测试用例按照最后一次修改时间顺序执行。
+  --cache-show=[CACHESHOW]
+                        显示缓存内容, 不执行搜集或测试. 可选参数: glob (default: '*').
+  --cache-clear         测试运行前清空所有缓存.
+  --lfnf={all,none}, --last-failed-no-failures={all,none}
+                        运行没有失败过的用例.
+  --sw, --stepwise      测试失败时退出，且下次运行从最后失败的用例开始运行
+  --stepwise-skip       忽略第一个失败的测试，下一个失败的用例出现时停止
+  --allure-severities=SEVERITIES_SET
+                        以逗号分割的优先级名称列表. 只运行指定优先级的用例. 可选择的优先级为: blocker, critical, normal, minor, trivial.
+  --allure-epics=EPICS_SET
+                        以逗号分割的epic列表. 运行具有至少一个指定标签的测试。
+  --allure-features=FEATURES_SET
+                        以逗号分割的feature列表. 运行具有至少一个指定标签的测试。
+  --allure-stories=STORIES_SET
+                        以逗号分割的story列表. 运行具有至少一个指定story的测试.
+  --allure-link-pattern=LINK_TYPE:LINK_PATTERN
+                        执行命令时指定短链接, 比如Bug地址. 格式为python str.format()格式，例如：`pytest test.py ----allure-link-pattern=issue:http//www.mytesttracker.com/issue/{}`.
+
+reporting:
+  --durations=N         显示最慢的N个测试用例和setup (N=0 for all).
+  -v, --verbose         增加报告信息.
+  -q, --quiet           减少报告信息.
+  --verbosity=VERBOSE   设置详细程度，默认是0。
+  -r chars              显示字符指定的测试摘要信息: (f)ailed, (E)rror, (s)kipped, (x)failed, (X)passed, (p)assed, (P)assed
+                        (a)ll except passed (p/P), or (A)ll. 默认启用(w)arnings (see --disable-warnings), 'N' 用于重置列表
+                        (默认: 'fE').
+  --disable-warnings, --disable-pytest-warnings
+                        禁用警告摘要
+  -l, --showlocals      在回溯中显示局部变量(默认禁止).
+  --tb=style            追溯打印模式 (auto/long/short/line/native/no).
+  --show-capture={no,stdout,stderr,log,all}
+                        控制在失败的测试中如何显示捕获的stdout/stderr/log. 默认'all'.
+  --full-trace          不删减任何信息（默认是删减的）.
+  --color=color         彩色终端输出 (yes/no/auto).
+  --pastebin=mode       发送失败｜all信息到bpaste.net服务
+  --junit-xml=path      在指定路径生成junit-xml报告
+  --junit-prefix=str    在junit-xml输出中添加str到类名前面
+  --result-log=path     可读结果日志的已弃用路径
+  --html=path           指定路径生成html报告
+  --self-contained-html
+                        创建一个包含所有必需的样式，脚本和图像的自包含html文件 - 这意味着该报告可能不会呈现或具备CSP限制的功能 (见： https://developer.mozilla.org/docs/Web/Security/CSP)
+  --css=path            将给定的CSS文件内容附加到报表样式文件中。
+
+collection:
+  --collect-only, --co  仅收集测试，不执行测试。
+  --pyargs              尝试将所有参数解释为python软件包。
+  --ignore=path         收集期间忽略指定路径(允许多个路径).
+  --ignore-glob=path    收集期间忽略路径 (允许多个路径).
+  --deselect=nodeid_prefix
+                        在收集期间取消选择项（通过节点id前缀）（允许多个）
+  --confcutdir=dir      仅加载指定目录(conftest.py的相对路径)
+  --noconftest          不加载任何conftest.py files.
+  --keep-duplicates     保持重复测试
+  --collect-in-virtualenv
+                        不要忽略本地virtualenv目录中的测试
+  --doctest-modules     在所有.py模块中运行doctests
+  --doctest-report={none,cdiff,ndiff,udiff,only_first_failure}
+                        为doctest失败时的差异选择另一种输出格式
+  --doctest-glob=pat    doctests文件匹配模式，默认值：test * .txt
+  --doctest-ignore-import-errors
+                        忽略 doctest ImportErrors
+  --doctest-continue-on-failure
+                        对于给定的doctest，在第一次失败后继续运行
+
+测试会话调试和配置:
+  --basetemp=dir        此测试运行的基本临时目录。（警告：如果存在此目录，则将其删除）
+  -V, --version         显示pytest版本和有关插件的信息。
+  -h, --help            显示帮助消息和配置信息
+  -p name               尽早加载给定的插件模块名称或入口点（允许多个）. 为避免加载插件, 使用`no:` prefix, 例如. `no:doctest`.
+  --trace-config        跟踪conftest.py文件的注意事项。
+  --debug               将内部跟踪调试信息存储在“ pytestdebug.log”中。
+  -o OVERRIDE_INI, --override-ini=OVERRIDE_INI
+                        以“option = value”样式覆盖ini选项，例如 `-o xfail_strict = True -o cache_dir = cache`
+  --assert=MODE         控制断言调试工具。 'plain'不执行任何断言调试。 “ rewrite”（默认）在导入时重写测试模块中的assert语句，以提供assert表达式信息。
+  --setup-only          仅安装fixtures, 不执行测试.
+  --setup-show          执行测试时显示fixtures的setup.
+  --setup-plan          不执行，只显示将要执行的fixture和测试用例
+
+pytest-warnings:
+  -W PYTHONWARNINGS, --pythonwarnings=PYTHONWARNINGS
+                        set which warnings to report, see -W option of python itself.
+
+logging:
+  --no-print-logs       disable printing caught logs on failed tests.
+  --log-level=LEVEL     level of messages to catch/display. Not set by default, so it depends on the root/parent log handler's effective level, where it is
+                        &quot;WARNING&quot; by default.
+  --log-format=LOG_FORMAT
+                        log format as used by the logging module.
+  --log-date-format=LOG_DATE_FORMAT
+                        log date format as used by the logging module.
+  --log-cli-level=LOG_CLI_LEVEL
+                        cli logging level.
+  --log-cli-format=LOG_CLI_FORMAT
+                        log format as used by the logging module.
+  --log-cli-date-format=LOG_CLI_DATE_FORMAT
+                        log date format as used by the logging module.
+  --log-file=LOG_FILE   path to a file when logging will be written to.
+  --log-file-level=LOG_FILE_LEVEL
+                        log file logging level.
+  --log-file-format=LOG_FILE_FORMAT
+                        log format as used by the logging module.
+  --log-file-date-format=LOG_FILE_DATE_FORMAT
+                        log date format as used by the logging module.
+  --log-auto-indent=LOG_AUTO_INDENT
+                        Auto-indent multiline messages passed to the logging module. Accepts true|on, false|off or an integer.
+
+reporting:
+  --alluredir=DIR       Generate Allure report in the specified directory (may not exist)
+  --clean-alluredir     Clean alluredir folder if it exists
+  --allure-no-capture   Do not attach pytest captured logging/stdout/stderr to report
+
+custom options:
+  --metadata=key value  additional metadata.
+  --metadata-from-json=METADATA_FROM_JSON
+                        additional metadata from a json string.
+
+[pytest] ini-options in the first pytest.ini|tox.ini|setup.cfg file found:
+
+  markers (linelist):   markers for test functions
+  empty_parameter_set_mark (string):
+                        default marker for empty parametersets
+  norecursedirs (args): directory patterns to avoid for recursion
+  testpaths (args):     directories to search for tests when no files or directories are given in the command line.
+  usefixtures (args):   list of default fixtures to be used with this project
+  python_files (args):  glob-style file patterns for Python test module discovery
+  python_classes (args):
+                        prefixes or glob names for Python test class discovery
+  python_functions (args):
+                        prefixes or glob names for Python test function and method discovery
+  disable_test_id_escaping_and_forfeit_all_rights_to_community_support (bool):
+                        disable string escape non-ascii characters, might cause unwanted side effects(use at your own risk)
+  console_output_style (string):
+                        console output: &quot;classic&quot;, or with additional progress information (&quot;progress&quot; (percentage) | &quot;count&quot;).
+  xfail_strict (bool):  default for the strict parameter of xfail markers when not given explicitly (default: False)
+  enable_assertion_pass_hook (bool):
+                        Enables the pytest_assertion_pass hook.Make sure to delete any previously generated pyc cache files.
+  junit_suite_name (string):
+                        Test suite name for JUnit report
+  junit_logging (string):
+                        Write captured log messages to JUnit report: one of no|log|system-out|system-err|out-err|all
+  junit_log_passing_tests (bool):
+                        Capture log information for passing tests to JUnit report:
+  junit_duration_report (string):
+                        Duration time to report: one of total|call
+  junit_family (string):
+                        Emit XML for schema: one of legacy|xunit1|xunit2
+  doctest_optionflags (args):
+                        option flags for doctests
+  doctest_encoding (string):
+                        encoding used for doctest files
+  cache_dir (string):   cache directory path.
+  filterwarnings (linelist):
+                        Each line specifies a pattern for warnings.filterwarnings. Processed after -W/--pythonwarnings.
+  log_print (bool):     default value for --no-print-logs
+  log_level (string):   default value for --log-level
+  log_format (string):  default value for --log-format
+  log_date_format (string):
+                        default value for --log-date-format
+  log_cli (bool):       enable log display during test run (also known as &quot;live logging&quot;).
+  log_cli_level (string):
+                        default value for --log-cli-level
+  log_cli_format (string):
+                        default value for --log-cli-format
+  log_cli_date_format (string):
+                        default value for --log-cli-date-format
+  log_file (string):    default value for --log-file
+  log_file_level (string):
+                        default value for --log-file-level
+  log_file_format (string):
+                        default value for --log-file-format
+  log_file_date_format (string):
+                        default value for --log-file-date-format
+  log_auto_indent (string):
+                        default value for --log-auto-indent
+  faulthandler_timeout (string):
+                        Dump the traceback of all threads if a test takes more than TIMEOUT seconds to finish. Not available on Windows.
+  addopts (args):       extra command line options
+  minversion (string):  minimally required pytest version
+  render_collapsed (bool):
+                        Open the report with all rows collapsed. Useful for very large reports
+
+environment variables:
+  PYTEST_ADDOPTS           extra command line options
+  PYTEST_PLUGINS           comma-separated plugins to load during startup
+  PYTEST_DISABLE_PLUGIN_AUTOLOAD set to disable plugin auto-loading
+  PYTEST_DEBUG             set to enable debug tracing of pytest's internals
+
+
+to see available markers type: pytest --markers
+to see available fixtures type: pytest --fixtures
+(shown according to specified file_or_dir or current dir if not specified; fixtures with leading '_' are only shown with the '-v' option
+</code></pre>
+<h2 id="_3">执行日志</h2>
+<pre><code class="language-shell">$ hrun examples/postman_echo/request_methods/request_with_functions.yml 
+2020-06-17 15:39:41.041 | INFO     | httprunner.make:make_testcase:317 - start to make testcase: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/examples/postman_echo/request_methods/request_with_functions.yml
+2020-06-17 15:39:41.042 | INFO     | httprunner.make:make_testcase:390 - generated testcase: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/examples/postman_echo/request_methods/request_with_functions_test.py
+2020-06-17 15:39:41.042 | INFO     | httprunner.make:format_pytest_with_black:154 - format pytest cases with black ...
+reformatted /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/examples/postman_echo/request_methods/request_with_functions_test.py
+All done! ✨ 🍰 ✨
+1 file reformatted, 1 file left unchanged.
+2020-06-17 15:39:41.315 | INFO     | httprunner.cli:main_run:56 - start to run tests with pytest. HttpRunner version: 3.0.13
+====================================================================== test session starts ======================================================================
+platform darwin -- Python 3.7.5, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
+rootdir: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner
+plugins: metadata-1.9.0, allure-pytest-2.8.16, html-2.1.1
+collected 1 item                                                                                                                                                
+
+examples/postman_echo/request_methods/request_with_functions_test.py .                                                                                    [100%]
+
+======================================================================= 1 passed in 2.98s =======================================================================
+</code></pre>
+<p>如果你想看到request和response、提取和断言的详细信息，可以增加<code>-s</code>（<code>--capture=no</code>的缩写）</p>
+<pre><code class="language-shell">$ hrun -s examples/postman_echo/request_methods/request_with_functions.yml
+2020-06-17 15:42:54.369 | INFO     | httprunner.make:make_testcase:317 - start to make testcase: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/examples/postman_echo/request_methods/request_with_functions.yml
+2020-06-17 15:42:54.369 | INFO     | httprunner.make:make_testcase:390 - generated testcase: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/examples/postman_echo/request_methods/request_with_functions_test.py
+2020-06-17 15:42:54.370 | INFO     | httprunner.make:format_pytest_with_black:154 - format pytest cases with black ...
+reformatted /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/examples/postman_echo/request_methods/request_with_functions_test.py
+All done! ✨ 🍰 ✨
+1 file reformatted, 1 file left unchanged.
+2020-06-17 15:42:54.699 | INFO     | httprunner.cli:main_run:56 - start to run tests with pytest. HttpRunner version: 3.0.13
+====================================================================== test session starts ======================================================================
+platform darwin -- Python 3.7.5, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
+rootdir: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner
+plugins: metadata-1.9.0, allure-pytest-2.8.16, html-2.1.1
+collected 1 item                                                                                                                                                
+
+examples/postman_echo/request_methods/request_with_functions_test.py 2020-06-17 15:42:55.017 | INFO     | httprunner.runner:test_start:435 - Start to run testcase: request methods testcase with functions, TestCase ID: cc404c49-000f-485c-b4c1-ac3367a053fe
+2020-06-17 15:42:55.018 | INFO     | httprunner.runner:__run_step:278 - run step begin: get with params &gt;&gt;&gt;&gt;&gt;&gt;
+2020-06-17 15:42:56.326 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : GET
+url      : https://postman-echo.com/get?foo1=bar11&amp;foo2=bar21&amp;sum_v=3
+headers  : {
+    &quot;User-Agent&quot;: &quot;HttpRunner/3.0.13&quot;,
+    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Connection&quot;: &quot;keep-alive&quot;,
+    &quot;HRUN-Request-ID&quot;: &quot;HRUN-cc404c49-000f-485c-b4c1-ac3367a053fe-775018&quot;,
+    &quot;Content-Length&quot;: &quot;2&quot;,
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+}
+cookies  : {}
+body     : {}
+
+2020-06-17 15:42:56.327 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    &quot;Date&quot;: &quot;Wed, 17 Jun 2020 07:42:56 GMT&quot;,
+    &quot;Content-Type&quot;: &quot;application/json; charset=utf-8&quot;,
+    &quot;Content-Length&quot;: &quot;477&quot;,
+    &quot;Connection&quot;: &quot;keep-alive&quot;,
+    &quot;ETag&quot;: &quot;W/\&quot;1dd-2JtBYPcnh8D6fqLz8KFn16Oq1R0\&quot;&quot;,
+    &quot;Vary&quot;: &quot;Accept-Encoding&quot;,
+    &quot;set-cookie&quot;: &quot;sails.sid=s%3A6J_EtUk3nkL_C2xtx-NtAXrlA5wPxEgk.gIO2yBbtvGWIIgQ%2F2mZhMkU669G3F60cvLAPWbwyoGM; Path=/; HttpOnly&quot;
+}
+cookies  : {
+    &quot;sails.sid&quot;: &quot;s%3A6J_EtUk3nkL_C2xtx-NtAXrlA5wPxEgk.gIO2yBbtvGWIIgQ%2F2mZhMkU669G3F60cvLAPWbwyoGM&quot;
+}
+encoding : utf-8
+content_type : application/json; charset=utf-8
+body     : {
+    &quot;args&quot;: {
+        &quot;foo1&quot;: &quot;bar11&quot;,
+        &quot;foo2&quot;: &quot;bar21&quot;,
+        &quot;sum_v&quot;: &quot;3&quot;
+    },
+    &quot;headers&quot;: {
+        &quot;x-forwarded-proto&quot;: &quot;https&quot;,
+        &quot;x-forwarded-port&quot;: &quot;443&quot;,
+        &quot;host&quot;: &quot;postman-echo.com&quot;,
+        &quot;x-amzn-trace-id&quot;: &quot;Root=1-5ee9c980-d8e98cc72a26ef24f5819ce3&quot;,
+        &quot;content-length&quot;: &quot;2&quot;,
+        &quot;user-agent&quot;: &quot;HttpRunner/3.0.13&quot;,
+        &quot;accept-encoding&quot;: &quot;gzip, deflate&quot;,
+        &quot;accept&quot;: &quot;*/*&quot;,
+        &quot;hrun-request-id&quot;: &quot;HRUN-cc404c49-000f-485c-b4c1-ac3367a053fe-775018&quot;,
+        &quot;content-type&quot;: &quot;application/json&quot;
+    },
+    &quot;url&quot;: &quot;https://postman-echo.com/get?foo1=bar11&amp;foo2=bar21&amp;sum_v=3&quot;
+}
+
+2020-06-17 15:42:56.328 | INFO     | httprunner.client:request:203 - status_code: 200, response_time(ms): 1307.33 ms, response_length: 477 bytes
+2020-06-17 15:42:56.328 | INFO     | httprunner.response:extract:152 - extract mapping: {'foo3': 'bar21'}
+2020-06-17 15:42:56.328 | INFO     | httprunner.response:validate:209 - assert status_code equal 200(int)       ==&gt; pass
+2020-06-17 15:42:56.329 | INFO     | httprunner.response:validate:209 - assert body.args.foo1 equal bar11(str)  ==&gt; pass
+2020-06-17 15:42:56.329 | INFO     | httprunner.response:validate:209 - assert body.args.sum_v equal 3(str)     ==&gt; pass
+2020-06-17 15:42:56.329 | INFO     | httprunner.response:validate:209 - assert body.args.foo2 equal bar21(str)  ==&gt; pass
+2020-06-17 15:42:56.330 | INFO     | httprunner.runner:__run_step:290 - run step end: get with params &lt;&lt;&lt;&lt;&lt;&lt;
+
+&lt;Omit&gt;
+
+2020-06-17 15:42:57.019 | INFO     | httprunner.runner:test_start:444 - generate testcase log: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/examples/postman_echo/logs/cc404c49-000f-485c-b4c1-ac3367a053fe.run.log
+.
+
+======================================================================= 1 passed in 2.13s =======================================================================
+</code></pre>
+<p>每个用例都会生成一个执行log，位置：<code>&lt;ProjectRootDir&gt;/logs/TestCaseID.run.log.</code></p>
+<h2 id="idrequest-id">测试用例ID和Request ID</h2>
+<p>为排除故障，每个测试用例将生成唯一ID（uuid4），每个request header将自动添加一个带有测试用例ID的<code>HRUN-Request-ID</code></p>
+<pre><code class="language-shell">HRUN-Request-ID = &quot;HRUN-&lt;TestCase ID&gt;-&lt;timestamp_six_digits&gt;&quot;
+timestamp_six_digits = str(int(time.time() * 1000))[-6:])
+</code></pre>
+<p>换句话说，同一个测试用例中的所有request有同样的<code>HRUN-Request-ID</code>前缀，并且每个请求有唯一的<code>HRUN-Request-ID</code>后缀。</p>
+<h2 id="client-server-ipport">Client &amp; Server IP:PORT</h2>
+<p>有时，记录远程服务器的IP和端口对于解决问题特别有用，尤其是当有多台服务器并且我们要检查哪一台返回错误时。</p>
+<p>从3.0.13开始，HttpRunner将在调试阶段记录客户端和服务端IP:PORT</p>
+<p>测试用例摘要：</p>
+<pre><code class="language-json">&quot;address&quot;: {
+    &quot;client_ip&quot;: &quot;10.90.205.63&quot;,
+    &quot;client_port&quot;: 62802,
+    &quot;server_ip&quot;: &quot;34.233.204.163&quot;,
+    &quot;server_port&quot;: 443
+},
+</code></pre>
+<h2 id="v2x">v2.x兼容性的参数</h2>
+<p>除了pytest的所有参数外，hrun还具有其他几个参数以保持与HttpRunner v2.x的兼容性。</p>
+<p>--failfast：无效，此参数将自动删除
+--report-file：指定html报告文件路径，此参数将替换为--html --self-contained-html并使用pytest-html插件生成html报告
+--save-tests：如果设置，HttpRunner v3.x将创建一个pytest conftest.py文件，该文件包含会话固定装置以聚合每个测试用例的摘要并将其转储到summary.json</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../write_testcase/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                编写测试用例(python)
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../testing_report/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                测试报告
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020-2021 在路上
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+    
+  </body>
+</html>

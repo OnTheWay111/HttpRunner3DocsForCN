@@ -1,0 +1,1298 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HttpRunner V3.x中文文档">
+      
+      
+      
+        <meta name="author" content="在路上">
+      
+      
+        <link rel="canonical" href="https://www.ontheway.cool/HttpRunner3DocsForCN/user_guide/write_testcase/">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>编写测试用例(python) - HttpRunner V3.x中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-36723568-3","mkdocs.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://www.ontheway.cool/HttpRunner3DocsForCN/" title="HttpRunner V3.x中文文档" class="md-header-nav__button md-logo" aria-label="HttpRunner V3.x中文文档">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            HttpRunner V3.x中文文档
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              编写测试用例(python)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://www.ontheway.cool/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    在路上的博客
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.ontheway.cool/HttpRunner3DocsForCN/" title="HttpRunner V3.x中文文档" class="md-nav__button md-logo" aria-label="HttpRunner V3.x中文文档">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    HttpRunner V3.x中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://www.ontheway.cool/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    在路上的博客
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      介绍
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../install/" class="md-nav__link">
+      安装
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../scaffold/" class="md-nav__link">
+      快速开始(脚手架)
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    
+    <label class="md-nav__link" for="nav-4">
+      基础概念
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="基础概念" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        基础概念
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/step_case_suite/" class="md-nav__link">
+      名词解释(step/case/suite)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/debugtalk.py/" class="md-nav__link">
+      debugtalk.py
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/param_priority/" class="md-nav__link">
+      变量优先级
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/structure/" class="md-nav__link">
+      项目结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/testcase_structure/" class="md-nav__link">
+      测试用例结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/hook/" class="md-nav__link">
+      hook机制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/dot-env/" class="md-nav__link">
+      环境变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/testcase-layer/" class="md-nav__link">
+      测试用例分层
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/parameters/" class="md-nav__link">
+      参数化数据驱动
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/security/" class="md-nav__link">
+      信息安全
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/upload-case/" class="md-nav__link">
+      文件上传场景
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      用户引导
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="用户引导" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        用户引导
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../record%26generate%20testcase/" class="md-nav__link">
+      录制&生成测试用例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        编写测试用例(python)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      编写测试用例(python)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    录制&amp;生成测试用例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    用例结构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    调用链
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    config
+  </a>
+  
+    <nav class="md-nav" aria-label="config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    name(必要)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base_url" class="md-nav__link">
+    base_url(可选)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    variables(可选的)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify" class="md-nav__link">
+    verify(可选的)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export" class="md-nav__link">
+    export(可选的)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teststeps" class="md-nav__link">
+    teststeps
+  </a>
+  
+    <nav class="md-nav" aria-label="teststeps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runrequestname" class="md-nav__link">
+    RunRequest(name)
+  </a>
+  
+    <nav class="md-nav" aria-label="RunRequest(name)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with_variables" class="md-nav__link">
+    .with_variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methodurl" class="md-nav__link">
+    .method(url)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with_params" class="md-nav__link">
+    .with_params
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with_headers" class="md-nav__link">
+    .with_headers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with_cookies" class="md-nav__link">
+    .with_cookies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whth_data" class="md-nav__link">
+    .whth_data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with_json" class="md-nav__link">
+    .with_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extract" class="md-nav__link">
+    extract
+  </a>
+  
+    <nav class="md-nav" aria-label="extract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with_hmespath" class="md-nav__link">
+    .WITH_HMESPATH
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate" class="md-nav__link">
+    validate
+  </a>
+  
+    <nav class="md-nav" aria-label="validate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assert_xxx" class="md-nav__link">
+    .assert_XXX
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtestcasename" class="md-nav__link">
+    RuntestCase(name)
+  </a>
+  
+    <nav class="md-nav" aria-label="RuntestCase(name)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with_variables_1" class="md-nav__link">
+    .with_variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call" class="md-nav__link">
+    .call
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export_1" class="md-nav__link">
+    .export
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../run_testcase/" class="md-nav__link">
+      运行测试用例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../testing_report/" class="md-nav__link">
+      测试报告
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../run_load_test/" class="md-nav__link">
+      执行性能测试
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    录制&amp;生成测试用例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    用例结构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    调用链
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    config
+  </a>
+  
+    <nav class="md-nav" aria-label="config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    name(必要)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base_url" class="md-nav__link">
+    base_url(可选)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    variables(可选的)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify" class="md-nav__link">
+    verify(可选的)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export" class="md-nav__link">
+    export(可选的)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teststeps" class="md-nav__link">
+    teststeps
+  </a>
+  
+    <nav class="md-nav" aria-label="teststeps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runrequestname" class="md-nav__link">
+    RunRequest(name)
+  </a>
+  
+    <nav class="md-nav" aria-label="RunRequest(name)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with_variables" class="md-nav__link">
+    .with_variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methodurl" class="md-nav__link">
+    .method(url)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with_params" class="md-nav__link">
+    .with_params
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with_headers" class="md-nav__link">
+    .with_headers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with_cookies" class="md-nav__link">
+    .with_cookies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whth_data" class="md-nav__link">
+    .whth_data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with_json" class="md-nav__link">
+    .with_json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extract" class="md-nav__link">
+    extract
+  </a>
+  
+    <nav class="md-nav" aria-label="extract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with_hmespath" class="md-nav__link">
+    .WITH_HMESPATH
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate" class="md-nav__link">
+    validate
+  </a>
+  
+    <nav class="md-nav" aria-label="validate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assert_xxx" class="md-nav__link">
+    .assert_XXX
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtestcasename" class="md-nav__link">
+    RuntestCase(name)
+  </a>
+  
+    <nav class="md-nav" aria-label="RuntestCase(name)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with_variables_1" class="md-nav__link">
+    .with_variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call" class="md-nav__link">
+    .call
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export_1" class="md-nav__link">
+    .export
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="python">编写测试用例(python)</h1>
+<h2 id="_1">录制&amp;生成测试用例</h2>
+<p>当产品进入被测状态后，最有效率的方式是捕获HTTP请求，利用HAR文件生成测试用例。详情请看<a href="../record%26generate%20testcase/">录制&amp;生成测试用例</a></p>
+<p>基于生成的pytest用例，你可以根据需要进行调整，从而需要更多的了解用例格式。</p>
+<h2 id="_2">用例结构</h2>
+<p>每个用例都是<code>HttpRunner</code>的子类，且必须包含属性：<code>config</code>和<code>teststeps</code>。</p>
+<ul>
+<li><code>config</code>：配置测试用例，包含 <code>base_url</code>, <code>verify</code>, <code>variables</code>, <code>export</code></li>
+<li><code>teststeps</code>：测试步骤的列表，每个步骤都对应一个API请求或另一个用例的引用，另外<code>variables/extract/validate/hooks</code>支持创建极其复杂的测试用例。</li>
+</ul>
+<pre><code class="language-python">from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
+
+
+class TestCaseRequestWithFunctions(HttpRunner):
+    config = (
+        Config(&quot;request methods testcase with functions&quot;)
+        .variables(
+            **{
+                &quot;foo1&quot;: &quot;config_bar1&quot;,
+                &quot;foo2&quot;: &quot;config_bar2&quot;,
+                &quot;expect_foo1&quot;: &quot;config_bar1&quot;,
+                &quot;expect_foo2&quot;: &quot;config_bar2&quot;,
+            }
+        )
+        .base_url(&quot;https://postman-echo.com&quot;)
+        .verify(False)
+        .export(*[&quot;foo3&quot;])
+    )
+
+    teststeps = [
+        Step(
+            RunRequest(&quot;get with params&quot;)
+            .with_variables(
+                **{&quot;foo1&quot;: &quot;bar11&quot;, &quot;foo2&quot;: &quot;bar21&quot;, &quot;sum_v&quot;: &quot;${sum_two(1, 2)}&quot;}
+            )
+            .get(&quot;/get&quot;)
+            .with_params(**{&quot;foo1&quot;: &quot;$foo1&quot;, &quot;foo2&quot;: &quot;$foo2&quot;, &quot;sum_v&quot;: &quot;$sum_v&quot;})
+            .with_headers(**{&quot;User-Agent&quot;: &quot;HttpRunner/${get_httprunner_version()}&quot;})
+            .extract()
+            .with_jmespath(&quot;body.args.foo2&quot;, &quot;foo3&quot;)
+            .validate()
+            .assert_equal(&quot;status_code&quot;, 200)
+            .assert_equal(&quot;body.args.foo1&quot;, &quot;bar11&quot;)
+            .assert_equal(&quot;body.args.sum_v&quot;, &quot;3&quot;)
+            .assert_equal(&quot;body.args.foo2&quot;, &quot;bar21&quot;)
+        ),
+        Step(
+            RunRequest(&quot;post form data&quot;)
+            .with_variables(**{&quot;foo2&quot;: &quot;bar23&quot;})
+            .post(&quot;/post&quot;)
+            .with_headers(
+                **{
+                    &quot;User-Agent&quot;: &quot;HttpRunner/${get_httprunner_version()}&quot;,
+                    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;,
+                }
+            )
+            .with_data(&quot;foo1=$foo1&amp;foo2=$foo2&amp;foo3=$foo3&quot;)
+            .validate()
+            .assert_equal(&quot;status_code&quot;, 200)
+            .assert_equal(&quot;body.form.foo1&quot;, &quot;$expect_foo1&quot;)
+            .assert_equal(&quot;body.form.foo2&quot;, &quot;bar23&quot;)
+            .assert_equal(&quot;body.form.foo3&quot;, &quot;bar21&quot;)
+        ),
+    ]
+
+
+if __name__ == &quot;__main__&quot;:
+    TestCaseRequestWithFunctions().test_start()
+</code></pre>
+<h2 id="_3">调用链</h2>
+<p><code>HttpRunner v3.x</code>最重要的功能之一就是支持调用链，使用调用链，不需要记住任何测试用例的信息，在IDE中编写测试用例时就可以智能完成。
+<img alt="img_4.png" src="../img_4.png" />
+<img alt="img_5.png" src="../img_5.png" /></p>
+<h2 id="config">config</h2>
+<p>每个测试用例都应该有<code>config</code>部分，可以配置用例级别。</p>
+<h3 id="name">name(必要)</h3>
+<p>指定用例名，将在log和报告中展示。</p>
+<h3 id="base_url">base_url(可选)</h3>
+<p>指定被测产品的通用Host，例如<code>https://postman-echo.com</code>。如果<code>base_url</code>被指定，测试步骤中的url只能写相对路径。当你要在不同环境下测试时，这个配置非常有用。</p>
+<h3 id="variables">variables(可选的)</h3>
+<p>指定用例的通用参数。每个测试步骤都可以引用config variables。也就是说，step variables 优先级高于 config variables.</p>
+<h3 id="verify">verify(可选的)</h3>
+<p>指定是否验证服务器的<a href="https://www.websecurity.digicert.com/zh/cn/security-topics/what-is-ssl-tls-https">TLS证书</a> 。 如果我们想记录测试用例执行的HTTP流量，这将特别有用，因为如果没有设置verify或将其设置为True，则会发生SSLError。</p>
+<h3 id="export">export(可选的)</h3>
+<p>指定输出的测试用例变量。将每个测试用例看作一个黑盒，config variables是输入变量，config export是输出变量。当一个测试用例在另一个测试用例的步骤中被引用时，config export将被提取并在随后的测试步骤中使用。</p>
+<h2 id="teststeps">teststeps</h2>
+<p>每个测试用例都有1个或多个测试步骤（List[step]），每个测试步骤对应一个API请求或其他用例的引用。
+<img alt="img_6.png" src="../../concepts/img_6.png" /></p>
+<blockquote>
+<p>注意：为了简单，在HttpRunner v2.x中的API概念已经被取消了。你可以将API定义为只有一个请求步骤的测试用例。</p>
+</blockquote>
+<h3 id="runrequestname">RunRequest(name)</h3>
+<p>测试步骤中的<code>RunRequest</code>用于发送API请求和校验response。
+RunRequest的name用来定义测试步骤 name，将出现在log和测试报告中。</p>
+<h4 id="with_variables">.with_variables</h4>
+<p>设置测试步骤的变量。每个测试步骤的变量都是独立的，如果想在多个测试步骤中共享变量，需要在config variables中定义。</p>
+<p>测试步骤中的变量，会覆盖config variables中的同名变量。</p>
+<h4 id="methodurl">.method(url)</h4>
+<p>设置http方法和Url，对应于<a href="https://requests.readthedocs.io/en/master/api/#requests.request">requests.request</a> 中的method和url。</p>
+<p>如果<code>base_url</code>在config中设置了，url只能是相对路径部分。</p>
+<h4 id="with_params">.with_params</h4>
+<p>设置url的query，相当于<a href="https://requests.readthedocs.io/en/master/api/#requests.request">requests.request</a> 中的params。</p>
+<h4 id="with_headers">.with_headers</h4>
+<p>设置请求的headers，相当于<a href="https://requests.readthedocs.io/en/master/api/#requests.request">requests.request</a> 中的headers。</p>
+<h4 id="with_cookies">.with_cookies</h4>
+<p>设置Http请求cookies，相当于<a href="https://requests.readthedocs.io/en/master/api/#requests.request">requests.request</a> 中的cookies。</p>
+<h4 id="whth_data">.whth_data</h4>
+<p>设置Http的请求Body，相当于<a href="https://requests.readthedocs.io/en/master/api/#requests.request">requests.request</a> 中的data。</p>
+<h4 id="with_json">.with_json</h4>
+<p>设置Http请求json格式的Body，相当于<a href="https://requests.readthedocs.io/en/master/api/#requests.request">requests.request</a> 中的json。</p>
+<h4 id="extract">extract</h4>
+<h5 id="with_hmespath">.WITH_HMESPATH</h5>
+<p>利用<a href="https://jmespath.org/">jmespath</a>提取Json Response body内容。</p>
+<blockquote>
+<p><code>with_jmespath(jmes_path: Text, var_name: Text)</code></p>
+</blockquote>
+<ul>
+<li>jmespath: jmespath表达式，详见<a href="https://jmespath.org/tutorial.html">JMESPath Tutorial</a></li>
+<li>var_name: 存储提取值的变量名，可以被后面的测试步骤引用。</li>
+</ul>
+<h4 id="validate">validate</h4>
+<h5 id="assert_xxx">.assert_XXX</h5>
+<p>用<a href="https://jmespath.org/">jmespath</a>提取response body，并验证提取值。</p>
+<blockquote>
+<p><code>assert_XXX(jmespath: Text, expected_value: ANy, message: Text="")</code></p>
+</blockquote>
+<ul>
+<li>jmespath: jmespath表达式，详见<a href="https://jmespath.org/tutorial.html">JMESPath Tutorial</a></li>
+<li>expected_value: 指定期望值或变量，也可以调用方法</li>
+<li>message(optional): 用于描述断言失败原因</li>
+</ul>
+<p>下图展示HttpRunner内置断言：
+<img alt="img_7.png" src="../img_7.png" /></p>
+<h3 id="runtestcasename">RuntestCase(name)</h3>
+<p><code>RunTestCase</code>用于在测试步骤中引用其他测试用例。
+RunTestCase的<code>name</code>用于指定teststep name，将会在执行log和测试报告中展示。</p>
+<h4 id="with_variables_1">.with_variables</h4>
+<p>跟RunRequest的<code>.with_variables</code>一样。</p>
+<h4 id="call">.call</h4>
+<p>指定引用的测试用例类。</p>
+<h4 id="export_1">.export</h4>
+<p>指定从引用的测试用例中提取的变量名。该变量在后面的test steps中可以引用。</p>
+<pre><code class="language-python">import os
+import sys
+
+sys.path.insert(0, os.getcwd())
+
+from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
+
+from examples.postman_echo.request_methods.request_with_functions_test import (
+    TestCaseRequestWithFunctions as RequestWithFunctions,
+)
+
+
+class TestCaseRequestWithTestcaseReference(HttpRunner):
+    config = (
+        Config(&quot;request methods testcase: reference testcase&quot;)
+        .variables(
+            **{
+                &quot;foo1&quot;: &quot;testsuite_config_bar1&quot;,
+                &quot;expect_foo1&quot;: &quot;testsuite_config_bar1&quot;,
+                &quot;expect_foo2&quot;: &quot;config_bar2&quot;,
+            }
+        )
+        .base_url(&quot;https://postman-echo.com&quot;)
+        .verify(False)
+    )
+
+    teststeps = [
+        Step(
+            RunTestCase(&quot;request with functions&quot;)
+            .with_variables(
+                **{&quot;foo1&quot;: &quot;testcase_ref_bar1&quot;, &quot;expect_foo1&quot;: &quot;testcase_ref_bar1&quot;}
+            )
+            .call(RequestWithFunctions)
+            .export(*[&quot;foo3&quot;])
+        ),
+        Step(
+            RunRequest(&quot;post form data&quot;)
+            .with_variables(**{&quot;foo1&quot;: &quot;bar1&quot;})
+            .post(&quot;/post&quot;)
+            .with_headers(
+                **{
+                    &quot;User-Agent&quot;: &quot;HttpRunner/${get_httprunner_version()}&quot;,
+                    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;,
+                }
+            )
+            .with_data(&quot;foo1=$foo1&amp;foo2=$foo3&quot;)
+            .validate()
+            .assert_equal(&quot;status_code&quot;, 200)
+            .assert_equal(&quot;body.form.foo1&quot;, &quot;bar1&quot;)
+            .assert_equal(&quot;body.form.foo2&quot;, &quot;bar21&quot;)
+        ),
+    ]
+
+
+if __name__ == &quot;__main__&quot;:
+    TestCaseRequestWithTestcaseReference().test_start()
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../record%26generate%20testcase/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                录制&生成测试用例
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../run_testcase/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                运行测试用例
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020-2021 在路上
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+    
+  </body>
+</html>
