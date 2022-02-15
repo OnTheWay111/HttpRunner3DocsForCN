@@ -12,14 +12,14 @@
         <meta name="author" content="在路上">
       
       
-        <link rel="canonical" href="https://www.ontheway.cool/HttpRunner3DocsForCN/user_guide/record%26generate%20testcase/">
+        <link rel="canonical" href="https://www.ontheway.cool/HttpRunner3DocsForCN/concepts/parameters/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
     
     
       
-        <title>录制并生成测试用例 - HttpRunner V3.x中文文档</title>
+        <title>参数化数据驱动 - HttpRunner V3.x中文文档</title>
       
     
     
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              录制并生成测试用例
+              参数化数据驱动
             
           </span>
         </div>
@@ -227,13 +227,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../concepts/step_case_suite/" class="md-tabs__link">
+      <a href="../step_case_suite/" class="md-tabs__link md-tabs__link--active">
         基础概念
       </a>
     </li>
@@ -249,7 +251,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../record&generate_testcase.md" class="md-tabs__link">
+      <a href="../../user_guide/record&generate_testcase.md" class="md-tabs__link">
         用户引导
       </a>
     </li>
@@ -369,12 +371,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -397,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/step_case_suite/" class="md-nav__link">
+      <a href="../step_case_suite/" class="md-nav__link">
         名词解释(step/case/suite)
       </a>
     </li>
@@ -411,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/debugtalk.py/" class="md-nav__link">
+      <a href="../debugtalk.py/" class="md-nav__link">
         debugtalk.py
       </a>
     </li>
@@ -425,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/param_priority/" class="md-nav__link">
+      <a href="../param_priority/" class="md-nav__link">
         变量优先级
       </a>
     </li>
@@ -439,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/structure/" class="md-nav__link">
+      <a href="../structure/" class="md-nav__link">
         项目结构
       </a>
     </li>
@@ -453,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/testcase_structure/" class="md-nav__link">
+      <a href="../testcase_structure/" class="md-nav__link">
         测试用例结构
       </a>
     </li>
@@ -467,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/hook/" class="md-nav__link">
+      <a href="../hook/" class="md-nav__link">
         hook机制
       </a>
     </li>
@@ -481,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/dot-env/" class="md-nav__link">
+      <a href="../dot-env/" class="md-nav__link">
         环境变量
       </a>
     </li>
@@ -495,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/testcase-layer/" class="md-nav__link">
+      <a href="../testcase-layer/" class="md-nav__link">
         测试用例分层
       </a>
     </li>
@@ -507,11 +511,128 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../concepts/parameters/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          参数化数据驱动
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         参数化数据驱动
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testsuite" class="md-nav__link">
+    测试用例集(testsuite)准备
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参数配置概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参数详细配置
+  </a>
+  
+    <nav class="md-nav" aria-label="参数详细配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    独立参数&amp;直接指定参数列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    关联参数&amp;直接指定参数列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv" class="md-nav__link">
+    独立参数 &amp; 引用CSV文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv_1" class="md-nav__link">
+    关联参数&amp;引用CSV文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    独立参数 &amp; 引用自定义函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    关联参数 &amp; 引用自定义函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    参数化运行
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -523,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         信息安全
       </a>
     </li>
@@ -537,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/upload-case/" class="md-nav__link">
+      <a href="../upload-case/" class="md-nav__link">
         文件上传场景
       </a>
     </li>
@@ -585,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../record&generate_testcase.md" class="md-nav__link">
+      <a href="../../user_guide/record&generate_testcase.md" class="md-nav__link">
         录制&生成测试用例
       </a>
     </li>
@@ -599,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../write_testcase/" class="md-nav__link">
+      <a href="../../user_guide/write_testcase/" class="md-nav__link">
         编写测试用例(python)
       </a>
     </li>
@@ -613,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../run_testcase/" class="md-nav__link">
+      <a href="../../user_guide/run_testcase/" class="md-nav__link">
         运行测试用例
       </a>
     </li>
@@ -627,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../testing_report/" class="md-nav__link">
+      <a href="../../user_guide/testing_report/" class="md-nav__link">
         测试报告
       </a>
     </li>
@@ -641,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../run_load_test/" class="md-nav__link">
+      <a href="../../user_guide/run_load_test/" class="md-nav__link">
         执行性能测试
       </a>
     </li>
@@ -697,50 +818,85 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#httpresponse" class="md-nav__link">
-    抓包http请求和response
+  <a href="#_2" class="md-nav__link">
+    介绍
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#har" class="md-nav__link">
-    导出HAR文件
+  <a href="#testsuite" class="md-nav__link">
+    测试用例集(testsuite)准备
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#har2case" class="md-nav__link">
-    har2case生成用例
+  <a href="#_3" class="md-nav__link">
+    参数配置概述
   </a>
   
-    <nav class="md-nav" aria-label="har2case生成用例">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参数详细配置
+  </a>
+  
+    <nav class="md-nav" aria-label="参数详细配置">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    帮助
+  <a href="#_5" class="md-nav__link">
+    独立参数&amp;直接指定参数列表
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pytest" class="md-nav__link">
-    生成测试用例(pytest)
+  <a href="#_6" class="md-nav__link">
+    关联参数&amp;直接指定参数列表
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#yamljson" class="md-nav__link">
-    生成测试用例(YAML/JSON)
+  <a href="#csv" class="md-nav__link">
+    独立参数 &amp; 引用CSV文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv_1" class="md-nav__link">
+    关联参数&amp;引用CSV文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    独立参数 &amp; 引用自定义函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    关联参数 &amp; 引用自定义函数
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    参数化运行
+  </a>
   
 </li>
       
@@ -757,293 +913,253 @@
               
                 
 
-<h1 id="_1">录制并生成测试用例</h1>
-<h2 id="httpresponse">抓包http请求和response</h2>
-<p>写用例之前，我们应该熟悉API的详细信息。建议使用抓包工具Charles或AnyProxy进行抓包。
-抓包配置可以参考：<a href="http://www.ontheway.cool/2020/12/28/Android-https%E6%8A%93%E5%8C%85%E6%8C%87%E5%8D%97/">Android https抓包指南</a></p>
-<p>抓包示例，如下图所示：
-<img alt="img.png" src="../img.png" /></p>
-<h2 id="har">导出HAR文件</h2>
-<p>我们可以选择捕获的请求和响应，并将会话导出到Har文件
-<img alt="img_1.png" src="../img_1.png" />
-<img alt="img_2.png" src="../img_2.png" /></p>
-<h2 id="har2case">har2case生成用例</h2>
-<p>可以使用命令<code>har2case</code>将Har文件转成测试用例。</p>
-<h3 id="_2">帮助</h3>
-<pre><code class="language-shell">$ har2case -h
-用法: har2case har2case [-h] [-2y] [-2j] [--filter FILTER]
-                         [--exclude EXCLUDE]
-                         [har_source_file]
+<h1 id="_1">参数化数据驱动</h1>
+<h2 id="_2">介绍</h2>
+<p>在自动化测试中，经常会遇到如下场景：</p>
+<ul>
+<li>测试搜索功能，只有一个搜索输入框，但有10种不同类型的搜索关键字；</li>
+<li>测试账号登录功能，需要输入用户名和密码，按照等价类划分后有20种组合情况。</li>
+</ul>
+<p>这里只是随意找了两个典型的例子，相信大家都有遇到过很多类似的场景。总结下来，就是我们的自动化脚本中存在参数，并且我们需要采用不同的参数去运行。</p>
+<p>经过概括，参数基本上分为两种类型：
+* 单个独立参数：例如前面的第一种场景，我们只需要变换搜索关键字这一个参数。
+* 多个具有关联性的参数：例如登录场景，我们需要变换名用户和密码两个参数，并且这两个参数需要关联组合。</p>
+<p>然后，对于参数而言，我们可能具有一个参数列表，在脚本运行时需要按照不同的规则去取值，例如顺序取值、随机取值、循环取值等。</p>
+<p>这就是典型的参数化和数据驱动。</p>
+<p>如需了解 HttpRunner 参数化数据驱动机制的实现原理和技术细节，可前往阅读<a href="https://debugtalk.com/post/httprunner-data-driven/">《HttpRunner 实现参数化数据驱动机制》</a> 。</p>
+<h2 id="testsuite">测试用例集(testsuite)准备</h2>
+<p>HttpRunner v3.x开始，测试用例和测试用例集都可以实现参数化数据驱动，需要使用parameters关键字，定义参数名称并指定数据源取值方式。</p>
+<p>如果让测试用例(testcase)的概念更纯粹，可以考虑将参数化的功能在testsuite中实现。</p>
+<p>创建一个 testsuite，在 testsuite 中引用测试用例，并定义参数化配置。</p>
+<p>测试用例集（testsuite）的格式如下所示：</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  variables:  # testsuite config variables
+    foo1: config_bar1
+    foo2: config_bar2
+    expect_foo1: config_bar1
+    expect_foo2: config_bar2
+  base_url: &quot;https://postman-echo.com&quot;
 
-positional arguments:
-  har_source_file       Specify HAR source file
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -2y, --to-yml, --to-yaml
-                        转换成YAML格式，如果未指定，默认转未pytest格式。
-  -2j, --to-json        转换成JSON格式，如果未指定，默认转未pytest格式。
-  --filter FILTER       指定过滤关键词, 只转换过滤器包含的URL。
-  --exclude EXCLUDE     指定排除关键词, 包含排除关键脆的URL不会被转换, 多个关键词可以用'|'隔开。
+testcases:
+-
+  name: test case 1
+  variables:  # testcase variables
+    uid: 1000
+    var_c: ${gen_random_string(5)}
+  parameters:
+    uid: [101, 102, 103]
+    var_c: [&quot;demo1&quot;, &quot;demo2&quot;, &quot;demo3&quot;]
+  testcase: /path/to/testcase1
 
 </code></pre>
-<h3 id="pytest">生成测试用例(pytest)</h3>
-<p>HttpRunner <code>3.0.7</code>版本开始，<code>har2case</code>将HAR文件默认转换成pytest，强烈建议以pytest格式而不是以前的YAML / JSON格式编写和维护测试用例。</p>
-<pre><code class="language-shell">$ har2case har/postman-echo-post-form.har
-2020-06-15 15:08:01.187 | INFO     | httprunner.ext.har2case.core:gen_testcase:332 - Start to generate testcase from har/postman-echo-post-form.har
-2020-06-15 15:08:01.187 | INFO     | httprunner.ext.har2case.core:_make_testcase:323 - Extract info from HAR file and prepare for testcase.
-2020-06-15 15:08:01.191 | INFO     | httprunner.loader:load_dot_env_file:130 - Loading environment variables from /Users/debugtalk/Desktop/demo/.env
-2020-06-15 15:08:01.191 | DEBUG    | httprunner.utils:set_os_environ:32 - Set OS environment variable: USERNAME
-2020-06-15 15:08:01.191 | DEBUG    | httprunner.utils:set_os_environ:32 - Set OS environment variable: PASSWORD
-2020-06-15 15:08:01.193 | INFO     | httprunner.make:make_testcase:310 - start to make testcase: /Users/debugtalk/Desktop/demo/har/postman-echo-post-form.har
-2020-06-15 15:08:01.193 | INFO     | httprunner.make:make_testcase:383 - generated testcase: /Users/debugtalk/Desktop/demo/har/postman_echo_post_form_test.py
-2020-06-15 15:08:01.194 | INFO     | httprunner.make:format_pytest_with_black:147 - format pytest cases with black ...
-reformatted /Users/debugtalk/Desktop/demo/har/postman_echo_post_form_test.py
-All done! ✨ 🍰 ✨
-1 file reformatted.
-2020-06-15 15:08:01.469 | INFO     | httprunner.ext.har2case.core:gen_testcase:353 - generated testcase: /Users/debugtalk/Desktop/demo/har/postman_echo_post_form_test.py
+<h2 id="_3">参数配置概述</h2>
+<p>如需对某测试用例(testcase)实现参数化数据驱动，需要使用parameters关键字，定义参数名称并指定数据源取值方式。</p>
+<p>参数名称的定义分为两种情况：
+* 独立参数单独进行定义；
+* 多个参数具有关联性的参数需要将其定义在一起，采用短横线(-)进行链接。</p>
+<p>数据源支持三种方式：
+* 脚本中直接指定参数列表：该种方式最为简单易用，适合参数列表比较小的情况。
+示例：</p>
+<pre><code class="language-yaml">  parameters:
+    uid: [101, 102, 103]
+    username-password:
+      - [ &quot;user1&quot;, &quot;111111&quot; ]
+      - [ &quot;user2&quot;, &quot;222222&quot; ]
+      - [ &quot;user3&quot;, &quot;333333&quot; ]
 </code></pre>
-<p>生成的pytest文件是标准的python文件，如下所示：</p>
-<pre><code class="language-python"># NOTE: Generated By HttpRunner v3.0.12
-# FROM: har/postman-echo-post-form.har
+<ul>
+<li>通过内置的parameterize(可简写为P)函数引用CSV文件：该种方式需要准备CSV数据文件，适合数据量比较大的情况。
+示例：</li>
+</ul>
+<pre><code class="language-yaml">  parameters:
+    apkchannel: ${P(data/vip.csv)} 
+</code></pre>
+<ul>
+<li>在debugtalk.py中自定义的函数生成参数列表：该种方式最为灵活，可通过自定义Python函数实现任意场景的数据驱动机制，当需要动态生成参数列表时也需要选择该种方式。
+示例：</li>
+</ul>
+<pre><code class="language-yaml">  parameters:
+    username-password: ${get_account(10)}
+</code></pre>
+<p>三种方式可根据实际项目需求进行灵活选择，同时支持多种方式的组合使用。加入测试用例中定义了多个参数，那么测试用例在运行时会对参数进行笛卡尔积组合，覆盖所有参数组合情况。</p>
+<h2 id="_4">参数详细配置</h2>
+<p>将参数名称定义和数据源指定方式进行组合，共有6中形式。先分别针对每一类情况进行详细说明。</p>
+<h3 id="_5">独立参数&amp;直接指定参数列表</h3>
+<p>对于参数列表比较小的情况，组u ii简单的方式是直接在YAML/JSON中指定参数列表内容。</p>
+<p>例如，对于独立参数uid,参数列表为[1001, 1002, 1003, 1004]，那么就可以按照如下方式进行配置:</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
 
-from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
+testcases:
+-
+  name: test case 1
+  parameters:
+    uid: [1001, 1002, 1003, 1004]
+  testcase: /path/to/testcase1
 
+</code></pre>
+<p>进行该配置后，测试用例在运行时就会对uid实现数据驱动，即分别使用[1001, 1002, 1003, 1004]四个值运行测试用例。</p>
+<h3 id="_6">关联参数&amp;直接指定参数列表</h3>
+<p>对于具有关联性的多个参数，比如username和password，那么可以按照如下方式进行配置：</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
 
-class TestCasePostmanEchoPostForm(HttpRunner):
-    config = Config(&quot;testcase description&quot;).verify(False)
+testcases:
+-
+  name: test case 1
+  parameters:
+    username-password:
+      - [ &quot;user1&quot;, &quot;111111&quot; ]
+      - [ &quot;user2&quot;, &quot;222222&quot; ]
+      - [ &quot;user3&quot;, &quot;333333&quot; ]
+  testcase: /path/to/testcase1
 
-    teststeps = [
-        Step(
-            RunRequest(&quot;/get&quot;)
-            .get(&quot;https://postman-echo.com/get&quot;)
-            .with_params(**{&quot;foo1&quot;: &quot;bar1&quot;, &quot;foo2&quot;: &quot;bar2&quot;})
-            .with_headers(
-                **{
-                    &quot;User-Agent&quot;: &quot;PostmanRuntime/7.24.1&quot;,
-                    &quot;Accept&quot;: &quot;*/*&quot;,
-                    &quot;Cache-Control&quot;: &quot;no-cache&quot;,
-                    &quot;Postman-Token&quot;: &quot;6606343b-10e5-4165-a89f-6c301b762ce0&quot;,
-                    &quot;Host&quot;: &quot;postman-echo.com&quot;,
-                    &quot;Accept-Encoding&quot;: &quot;gzip, deflate, br&quot;,
-                    &quot;Connection&quot;: &quot;keep-alive&quot;,
-                    &quot;Cookie&quot;: &quot;sails.sid=s%3AQG_EVeNRw8k1xxZ6v_SG401VTpmJDSRu.fTAGx3JnZUT7S0c2%2FrD9cxUhQemIsm78nifYZYHpPCU&quot;,
-                }
-            )
-            .with_cookies(
-                **{
-                    &quot;sails.sid&quot;: &quot;s%3AQG_EVeNRw8k1xxZ6v_SG401VTpmJDSRu.fTAGx3JnZUT7S0c2%2FrD9cxUhQemIsm78nifYZYHpPCU&quot;
-                }
-            )
-            .validate()
-            .assert_equal(&quot;status_code&quot;, 200)
-            .assert_equal('headers.&quot;Content-Type&quot;', &quot;application/json; charset=utf-8&quot;)
-            .assert_equal(
-                &quot;body.url&quot;, &quot;https://postman-echo.com/get?foo1=bar1&amp;foo2=bar2&quot;
-            )
-        ),
-        Step(
-            RunRequest(&quot;/post&quot;)
-            .post(&quot;https://postman-echo.com/post&quot;)
-            .with_headers(
-                **{
-                    &quot;User-Agent&quot;: &quot;PostmanRuntime/7.24.1&quot;,
-                    &quot;Accept&quot;: &quot;*/*&quot;,
-                    &quot;Cache-Control&quot;: &quot;no-cache&quot;,
-                    &quot;Postman-Token&quot;: &quot;3e408e9d-25ca-4b31-b04b-7f4898a8cd49&quot;,
-                    &quot;Host&quot;: &quot;postman-echo.com&quot;,
-                    &quot;Accept-Encoding&quot;: &quot;gzip, deflate, br&quot;,
-                    &quot;Connection&quot;: &quot;keep-alive&quot;,
-                    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;,
-                    &quot;Content-Length&quot;: &quot;19&quot;,
-                    &quot;Cookie&quot;: &quot;sails.sid=s%3AQG_EVeNRw8k1xxZ6v_SG401VTpmJDSRu.fTAGx3JnZUT7S0c2%2FrD9cxUhQemIsm78nifYZYHpPCU&quot;,
-                }
-            )
-            .with_cookies(
-                **{
-                    &quot;sails.sid&quot;: &quot;s%3AQG_EVeNRw8k1xxZ6v_SG401VTpmJDSRu.fTAGx3JnZUT7S0c2%2FrD9cxUhQemIsm78nifYZYHpPCU&quot;
-                }
-            )
-            .with_data({&quot;foo1&quot;: &quot;bar1&quot;, &quot;foo2&quot;: &quot;bar2&quot;})
-            .validate()
-            .assert_equal(&quot;status_code&quot;, 200)
-            .assert_equal('headers.&quot;Content-Type&quot;', &quot;application/json; charset=utf-8&quot;)
-            .assert_equal(&quot;body.data&quot;, &quot;&quot;)
-            .assert_equal(&quot;body.url&quot;, &quot;https://postman-echo.com/post&quot;)
-        ),
+</code></pre>
+<p>进行该配置后，测试用例在运行时就会对username和password实现数据驱动，即分别使用 <code>{"username": "user1", "password": "111111"}、{"username": "user2", "password": "222222"}、{"username": "user3", "password": "333333"}</code> 运行 3 次测试，并且保证参数值总是成对使用。</p>
+<h3 id="csv">独立参数 &amp; 引用CSV文件</h3>
+<p>对于已有参数列表，并且数据量比较大的情况，比较适合的方式是将参数列表值存储在 CSV 数据文件中。</p>
+<p>对于 CSV 数据文件，需要遵循如下几项约定的规则：</p>
+<ul>
+<li>CSV 文件中的第一行必须为参数名称，从第二行开始为参数值，每个（组）值占一行；</li>
+<li>若同一个 CSV 文件中具有多个参数，则参数名称和数值的间隔符需实用英文逗号；</li>
+<li>在 YAML/JSON 文件引用 CSV 文件时，文件路径为基于项目根目录（debugtalk.py 所在路径）的相对路径。</li>
+</ul>
+<p>例如，user_id 的参数取值范围为 1001～2000，那么我们就可以创建 user_id.csv，并且在文件中按照如下形式进行描述。</p>
+<pre><code class="language-csv">user_id
+1001
+1002
+...
+1999
+2000
+</code></pre>
+<p>然后在 YAML/JSON 测试用例文件中，就可以通过内置的 parameterize（可简写为 P）函数引用 CSV 文件。</p>
+<p>假设项目的根目录下有 data 文件夹，user_id.csv 位于其中，那么 user_id.csv 的引用描述如下：</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  parameters:
+    user_id: ${P(data/user_id.csv)}
+  testcase: /path/to/testcase1
+</code></pre>
+<p>即 P 函数的参数（CSV 文件路径）是相对于项目根目录的相对路径。当然，这里也可以使用 CSV 文件在系统中的绝对路径，不过这样的话在项目路径变动时就会出现问题，因此推荐使用相对路径的形式。</p>
+<h3 id="csv_1">关联参数&amp;引用CSV文件</h3>
+<p>对于具有关联性的多个参数，例如 username 和 password，那么就可以创建 account.csv，并在文件中按照如下形式进行描述。</p>
+<pre><code class="language-csv">username,password
+test1,111111
+test2,222222
+test3,333333
+</code></pre>
+<p>然后在 YAML/JSON 测试用例文件中，就可以通过内置的 parameterize（可简写为 P）函数引用 CSV 文件。</p>
+<p>假设项目的根目录下有 data 文件夹，account.csv 位于其中，那么 account.csv 的引用描述如下：</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  parameters:
+    username-password: ${P(data/account.csv)}
+  testcase: /path/to/testcase1
+
+</code></pre>
+<p>需要说明的是，在 parameters 中指定的参数名称必须与 CSV 文件中第一行的参数名称一致，顺序可以不一致，参数个数也可以不一致。</p>
+<p>例如，在 account.csv 文件中可以包含多个参数，username、password、phone、age：</p>
+<pre><code class="language-csv">username,password,phone,age
+test1,111111,18600000001,21
+test2,222222,18600000002,22
+test3,333333,18600000003,23
+</code></pre>
+<p>而在 YAML/JSON 测试用例文件中指定参数时，可以只使用部分参数，并且参数顺序无需与 CSV 文件中参数名称的顺序一致。</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
+
+testcases:
+-
+  name: test case 1
+  parameters:
+    phone-username: ${P(account.csv)}
+  testcase: /path/to/testcase1
+
+</code></pre>
+<h3 id="_7">独立参数 &amp; 引用自定义函数</h3>
+<p>对于没有现成参数列表，或者需要更灵活的方式动态生成参数的情况，可以通过在 debugtalk.py 中自定义函数生成参数列表，并在 YAML/JSON 引用自定义函数的方式。</p>
+<p>例如，若需对 user_id 进行参数化数据驱动，参数取值范围为 1001～1004，那么就可以在 debugtalk.py 中定义一个函数，返回参数列表。</p>
+<pre><code class="language-python">def get_user_id():
+    return [
+        {&quot;user_id&quot;: 1001},
+        {&quot;user_id&quot;: 1002},
+        {&quot;user_id&quot;: 1003},
+        {&quot;user_id&quot;: 1004}
     ]
-
-
-if __name__ == &quot;__main__&quot;:
-    TestCasePostmanEchoPostForm().test_start()
 </code></pre>
-<p>可以使用命令<code>hrun</code>或<code>pytest</code>运行，实际上，<code>hrun</code>是<code>pytest</code>的封装，效果基本相同。</p>
-<pre><code class="language-shell">$ hrun har/postman_echo_post_form_test.py  
-2020-06-15 15:23:03.502 | INFO     | httprunner.loader:load_dot_env_file:130 - Loading environment variables from /Users/debugtalk/Desktop/demo/.env
-2020-06-15 15:23:03.502 | DEBUG    | httprunner.utils:set_os_environ:32 - Set OS environment variable: USERNAME
-2020-06-15 15:23:03.502 | DEBUG    | httprunner.utils:set_os_environ:32 - Set OS environment variable: PASSWORD
-2020-06-15 15:23:03.503 | INFO     | httprunner.make:format_pytest_with_black:147 - format pytest cases with black ...
-All done! ✨ 🍰 ✨
-1 file left unchanged.
-2020-06-15 15:23:03.662 | INFO     | httprunner.cli:main_run:56 - start to run tests with pytest. HttpRunner version: 3.0.12
-====================================================================== test session starts ======================================================================
-platform darwin -- Python 3.7.5, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
-rootdir: /Users/debugtalk/Desktop/demo
-plugins: metadata-1.9.0, allure-pytest-2.8.16, html-2.1.1
-collected 1 item                                                                                                                                                
+<p>然后，在 YAML/JSON 的 parameters 中就可以通过调用自定义函数的形式来指定数据源。</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
 
-har/postman_echo_post_form_test.py .                                                                                                                      [100%]
+testcases:
+-
+  name: test case 1
+  parameters:
+    user_id: ${get_user_id()}
+  testcase: /path/to/testcase1
 
-======================================================================= 1 passed in 2.60s =======================================================================
 </code></pre>
-<pre><code class="language-shell">$ pytest har/postman_echo_post_form_test.py 
-====================================================================== test session starts ======================================================================
-platform darwin -- Python 3.7.5, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
-rootdir: /Users/debugtalk/Desktop/demo
-plugins: metadata-1.9.0, allure-pytest-2.8.16, html-2.1.1
-collected 1 item                                                                                                                                                
+<p>另外，通过函数的传参机制，还可以实现更灵活的参数生成功能，在调用函数时指定需要生成的参数个数。</p>
+<h3 id="_8">关联参数 &amp; 引用自定义函数</h3>
+<p>对于具有关联性的多个参数，实现方式也类似。
+例如，在debugtalk.py中定义函数get_account，生成指定数量的账号密码参数列表。</p>
+<pre><code class="language-python">def get_account(num):
+    accounts = []
+    for index in range(1, num+1):
+        accounts.append(
+            {&quot;username&quot;: &quot;user%s&quot; % index, &quot;password&quot;: str(index) * 6},
+        )
 
-har/postman_echo_post_form_test.py .                                                                                                                      [100%]
+    return accounts
+</code></pre>
+<p>在YAML/JSON的parameters中就可以调用自定义函数生成指定数量的参数列表</p>
+<pre><code class="language-yaml">
+config:
+  name: test suite demo
+  base_url: &quot;https://postman-echo.com&quot;
 
-================================================================= 1 passed, 1 warning in 4.11s ==================================================================
-</code></pre>
-<h3 id="yamljson">生成测试用例(YAML/JSON)</h3>
-<p>当然，你也可以生成<code>YAML/JSON</code>测试用例。 只需要在<code>har2case</code>命令后 添加<code>-2y/--to-yml</code>或<code>-2j/--to-json</code>。</p>
-<pre><code class="language-shell">$ har2case har/postman-echo-post-form.har -2j
-2020-06-15 15:32:02.955 | INFO     | httprunner.ext.har2case.core:gen_testcase:332 - Start to generate testcase from har/postman-echo-post-form.har
-2020-06-15 15:32:02.955 | INFO     | httprunner.ext.har2case.core:_make_testcase:323 - Extract info from HAR file and prepare for testcase.
-2020-06-15 15:32:02.958 | INFO     | httprunner.ext.har2case.utils:dump_json:122 - dump testcase to JSON format.
-2020-06-15 15:32:02.959 | INFO     | httprunner.ext.har2case.utils:dump_json:131 - Generate JSON testcase successfully: har/postman-echo-post-form.json
-2020-06-15 15:32:02.959 | INFO     | httprunner.ext.har2case.core:gen_testcase:353 - generated testcase: har/postman-echo-post-form.json
-</code></pre>
-<pre><code class="language-json">{
-    &quot;config&quot;: {
-        &quot;name&quot;: &quot;testcase description&quot;,
-        &quot;variables&quot;: {},
-        &quot;verify&quot;: false
-    },
-    &quot;teststeps&quot;: [
-        {
-            &quot;name&quot;: &quot;/get&quot;,
-            &quot;request&quot;: {
-                &quot;url&quot;: &quot;https://postman-echo.com/get&quot;,
-                &quot;params&quot;: {
-                    &quot;foo1&quot;: &quot;bar1&quot;,
-                    &quot;foo2&quot;: &quot;bar2&quot;
-                },
-                &quot;method&quot;: &quot;GET&quot;,
-                &quot;cookies&quot;: {
-                    &quot;sails.sid&quot;: &quot;s%3AQG_EVeNRw8k1xxZ6v_SG401VTpmJDSRu.fTAGx3JnZUT7S0c2%2FrD9cxUhQemIsm78nifYZYHpPCU&quot;
-                },
-                &quot;headers&quot;: {
-                    &quot;User-Agent&quot;: &quot;PostmanRuntime/7.24.1&quot;,
-                    &quot;Accept&quot;: &quot;*/*&quot;,
-                    &quot;Cache-Control&quot;: &quot;no-cache&quot;,
-                    &quot;Postman-Token&quot;: &quot;6606343b-10e5-4165-a89f-6c301b762ce0&quot;,
-                    &quot;Host&quot;: &quot;postman-echo.com&quot;,
-                    &quot;Accept-Encoding&quot;: &quot;gzip, deflate, br&quot;,
-                    &quot;Connection&quot;: &quot;keep-alive&quot;,
-                    &quot;Cookie&quot;: &quot;sails.sid=s%3AQG_EVeNRw8k1xxZ6v_SG401VTpmJDSRu.fTAGx3JnZUT7S0c2%2FrD9cxUhQemIsm78nifYZYHpPCU&quot;
-                }
-            },
-            &quot;validate&quot;: [
-                {
-                    &quot;eq&quot;: [
-                        &quot;status_code&quot;,
-                        200
-                    ]
-                },
-                {
-                    &quot;eq&quot;: [
-                        &quot;headers.Content-Type&quot;,
-                        &quot;application/json; charset=utf-8&quot;
-                    ]
-                },
-                {
-                    &quot;eq&quot;: [
-                        &quot;body.url&quot;,
-                        &quot;https://postman-echo.com/get?foo1=bar1&amp;foo2=bar2&quot;
-                    ]
-                }
-            ]
-        },
-        {
-            &quot;name&quot;: &quot;/post&quot;,
-            &quot;request&quot;: {
-                &quot;url&quot;: &quot;https://postman-echo.com/post&quot;,
-                &quot;method&quot;: &quot;POST&quot;,
-                &quot;cookies&quot;: {
-                    &quot;sails.sid&quot;: &quot;s%3AQG_EVeNRw8k1xxZ6v_SG401VTpmJDSRu.fTAGx3JnZUT7S0c2%2FrD9cxUhQemIsm78nifYZYHpPCU&quot;
-                },
-                &quot;headers&quot;: {
-                    &quot;User-Agent&quot;: &quot;PostmanRuntime/7.24.1&quot;,
-                    &quot;Accept&quot;: &quot;*/*&quot;,
-                    &quot;Cache-Control&quot;: &quot;no-cache&quot;,
-                    &quot;Postman-Token&quot;: &quot;3e408e9d-25ca-4b31-b04b-7f4898a8cd49&quot;,
-                    &quot;Host&quot;: &quot;postman-echo.com&quot;,
-                    &quot;Accept-Encoding&quot;: &quot;gzip, deflate, br&quot;,
-                    &quot;Connection&quot;: &quot;keep-alive&quot;,
-                    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;,
-                    &quot;Content-Length&quot;: &quot;19&quot;,
-                    &quot;Cookie&quot;: &quot;sails.sid=s%3AQG_EVeNRw8k1xxZ6v_SG401VTpmJDSRu.fTAGx3JnZUT7S0c2%2FrD9cxUhQemIsm78nifYZYHpPCU&quot;
-                },
-                &quot;data&quot;: {
-                    &quot;foo1&quot;: &quot;bar1&quot;,
-                    &quot;foo2&quot;: &quot;bar2&quot;
-                }
-            },
-            &quot;validate&quot;: [
-                {
-                    &quot;eq&quot;: [
-                        &quot;status_code&quot;,
-                        200
-                    ]
-                },
-                {
-                    &quot;eq&quot;: [
-                        &quot;headers.Content-Type&quot;,
-                        &quot;application/json; charset=utf-8&quot;
-                    ]
-                },
-                {
-                    &quot;eq&quot;: [
-                        &quot;body.data&quot;,
-                        &quot;&quot;
-                    ]
-                },
-                {
-                    &quot;eq&quot;: [
-                        &quot;body.url&quot;,
-                        &quot;https://postman-echo.com/post&quot;
-                    ]
-                }
-            ]
-        }
-    ]
-}
-</code></pre>
-<p><code>YAML/JSON</code>用例和<code>pytest</code>用例文件含有相同的信息，也可以使用<code>hrun</code>运行。</p>
-<pre><code class="language-shell">$ hrun har/postman-echo-post-form.json 
-2020-06-15 15:37:15.621 | INFO     | httprunner.loader:load_dot_env_file:130 - Loading environment variables from /Users/debugtalk/Desktop/demo/.env
-2020-06-15 15:37:15.622 | DEBUG    | httprunner.utils:set_os_environ:32 - Set OS environment variable: USERNAME
-2020-06-15 15:37:15.622 | DEBUG    | httprunner.utils:set_os_environ:32 - Set OS environment variable: PASSWORD
-2020-06-15 15:37:15.623 | INFO     | httprunner.make:make_testcase:310 - start to make testcase: /Users/debugtalk/Desktop/demo/har/postman-echo-post-form.json
-2020-06-15 15:37:15.625 | INFO     | httprunner.make:make_testcase:383 - generated testcase: /Users/debugtalk/Desktop/demo/har/postman_echo_post_form_test.py
-2020-06-15 15:37:15.625 | INFO     | httprunner.make:format_pytest_with_black:147 - format pytest cases with black ...
-reformatted /Users/debugtalk/Desktop/demo/har/postman_echo_post_form_test.py
-All done! ✨ 🍰 ✨
-1 file reformatted, 1 file left unchanged.
-2020-06-15 15:37:15.962 | INFO     | httprunner.cli:main_run:56 - start to run tests with pytest. HttpRunner version: 3.0.12
-====================================================================== test session starts ======================================================================
-platform darwin -- Python 3.7.5, pytest-5.4.2, py-1.8.1, pluggy-0.13.1
-rootdir: /Users/debugtalk/Desktop/demo
-plugins: metadata-1.9.0, allure-pytest-2.8.16, html-2.1.1
-collected 1 item                                                                                                                                                
+testcases:
+-
+  name: test case 1
+  parameters:
+    username-password: ${get_account(10)}
+  testcase: /path/to/testcase1
 
-har/postman_echo_post_form_test.py .                                                                                                                      [100%]
-
-======================================================================= 1 passed in 2.03s =======================================================================
 </code></pre>
+<blockquote>
+<p>需要注意的是，在自定义函数中，生成的参数列表必须为 list of dict 的数据结构，该设计主要是为了与 CSV 文件的处理机制保持一致。</p>
+</blockquote>
+<h2 id="_9">参数化运行</h2>
+<p>完成以上参数定义和数据源准备工作之后，参数化运行与普通测试用例的运行完全一致。
+采用hrun命令运行自动化测试：</p>
+<pre><code class="language-shell">$ hrun tests/data/demo_parameters.yml
+</code></pre>
+<p>采用 locusts 命令运行性能测试：</p>
+<pre><code class="language-shell">$ locusts -f tests/data/demo_parameters.yml
+</code></pre>
+<p>区别在于，自动化测试时遍历一遍后会终止执行，性能测试时每个并发用户都会循环遍历所有参数。</p>
 
               
             </article>
@@ -1058,6 +1174,41 @@ har/postman_echo_post_form_test.py .                                            
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../testcase-layer/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 测试用例分层" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              测试用例分层
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../security/" class="md-footer__link md-footer__link--next" aria-label="下一页: 信息安全" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              信息安全
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

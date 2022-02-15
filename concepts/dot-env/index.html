@@ -12,21 +12,21 @@
         <meta name="author" content="在路上">
       
       
-        <link rel="canonical" href="https://www.ontheway.cool/HttpRunner3DocsForCN/">
+        <link rel="canonical" href="https://www.ontheway.cool/HttpRunner3DocsForCN/concepts/dot-env/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
     
     
       
-        <title>HttpRunner V3.x中文文档</title>
+        <title>环境变量 - HttpRunner V3.x中文文档</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.d6be258b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d6be258b.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -40,7 +40,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -84,7 +84,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="." title="HttpRunner V3.x中文文档" class="md-header__button md-logo" aria-label="HttpRunner V3.x中文文档" data-md-component="logo">
+    <a href="../.." title="HttpRunner V3.x中文文档" class="md-header__button md-logo" aria-label="HttpRunner V3.x中文文档" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              介绍
+              环境变量
             
           </span>
         </div>
@@ -191,12 +191,10 @@
         
   
   
-    
-  
 
 
   <li class="md-tabs__item">
-    <a href="." class="md-tabs__link md-tabs__link--active">
+    <a href="../.." class="md-tabs__link">
       介绍
     </a>
   </li>
@@ -208,7 +206,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="install/" class="md-tabs__link">
+    <a href="../../install/" class="md-tabs__link">
       安装
     </a>
   </li>
@@ -220,7 +218,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="scaffold/" class="md-tabs__link">
+    <a href="../../scaffold/" class="md-tabs__link">
       快速开始(脚手架)
     </a>
   </li>
@@ -229,13 +227,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="concepts/step_case_suite/" class="md-tabs__link">
+      <a href="../step_case_suite/" class="md-tabs__link md-tabs__link--active">
         基础概念
       </a>
     </li>
@@ -251,7 +251,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="user_guide/record&generate_testcase.md" class="md-tabs__link">
+      <a href="../../user_guide/record&generate_testcase.md" class="md-tabs__link">
         用户引导
       </a>
     </li>
@@ -264,7 +264,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="contactMe/" class="md-tabs__link">
+    <a href="../../contactMe/" class="md-tabs__link">
       联系我
     </a>
   </li>
@@ -297,7 +297,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="HttpRunner V3.x中文文档" class="md-nav__button md-logo" aria-label="HttpRunner V3.x中文文档" data-md-component="logo">
+    <a href="../.." title="HttpRunner V3.x中文文档" class="md-nav__button md-logo" aria-label="HttpRunner V3.x中文文档" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -326,82 +326,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          介绍
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         介绍
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    访问速度慢的同学，可以访问国内版
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    🏡介绍
-  </a>
-  
-    <nav class="md-nav" aria-label="🏡介绍">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#httprunner-v3x" class="md-nav__link">
-    httprunner v3.x 交流群
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    设计哲学
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    主要特征
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -414,7 +343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/" class="md-nav__link">
+      <a href="../../install/" class="md-nav__link">
         安装
       </a>
     </li>
@@ -429,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="scaffold/" class="md-nav__link">
+      <a href="../../scaffold/" class="md-nav__link">
         快速开始(脚手架)
       </a>
     </li>
@@ -442,12 +371,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -470,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/step_case_suite/" class="md-nav__link">
+      <a href="../step_case_suite/" class="md-nav__link">
         名词解释(step/case/suite)
       </a>
     </li>
@@ -484,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/debugtalk.py/" class="md-nav__link">
+      <a href="../debugtalk.py/" class="md-nav__link">
         debugtalk.py
       </a>
     </li>
@@ -498,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/param_priority/" class="md-nav__link">
+      <a href="../param_priority/" class="md-nav__link">
         变量优先级
       </a>
     </li>
@@ -512,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/structure/" class="md-nav__link">
+      <a href="../structure/" class="md-nav__link">
         项目结构
       </a>
     </li>
@@ -526,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/testcase_structure/" class="md-nav__link">
+      <a href="../testcase_structure/" class="md-nav__link">
         测试用例结构
       </a>
     </li>
@@ -540,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/hook/" class="md-nav__link">
+      <a href="../hook/" class="md-nav__link">
         hook机制
       </a>
     </li>
@@ -552,11 +483,99 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="concepts/dot-env/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          环境变量
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         环境变量
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    环境变量的作用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    设置环境变量
+  </a>
+  
+    <nav class="md-nav" aria-label="设置环境变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    在终端中预设环境变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    [推荐]通过 .env 文件设置环境变量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    引用环境变量
+  </a>
+  
+    <nav class="md-nav" aria-label="引用环境变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#env_1" class="md-nav__link">
+    指定.env执行暂未找到运行方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -568,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/testcase-layer/" class="md-nav__link">
+      <a href="../testcase-layer/" class="md-nav__link">
         测试用例分层
       </a>
     </li>
@@ -582,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/parameters/" class="md-nav__link">
+      <a href="../parameters/" class="md-nav__link">
         参数化数据驱动
       </a>
     </li>
@@ -596,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         信息安全
       </a>
     </li>
@@ -610,7 +629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/upload-case/" class="md-nav__link">
+      <a href="../upload-case/" class="md-nav__link">
         文件上传场景
       </a>
     </li>
@@ -658,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="user_guide/record&generate_testcase.md" class="md-nav__link">
+      <a href="../../user_guide/record&generate_testcase.md" class="md-nav__link">
         录制&生成测试用例
       </a>
     </li>
@@ -672,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="user_guide/write_testcase/" class="md-nav__link">
+      <a href="../../user_guide/write_testcase/" class="md-nav__link">
         编写测试用例(python)
       </a>
     </li>
@@ -686,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="user_guide/run_testcase/" class="md-nav__link">
+      <a href="../../user_guide/run_testcase/" class="md-nav__link">
         运行测试用例
       </a>
     </li>
@@ -700,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="user_guide/testing_report/" class="md-nav__link">
+      <a href="../../user_guide/testing_report/" class="md-nav__link">
         测试报告
       </a>
     </li>
@@ -714,7 +733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="user_guide/run_load_test/" class="md-nav__link">
+      <a href="../../user_guide/run_load_test/" class="md-nav__link">
         执行性能测试
       </a>
     </li>
@@ -736,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contactMe/" class="md-nav__link">
+      <a href="../../contactMe/" class="md-nav__link">
         联系我
       </a>
     </li>
@@ -760,6 +779,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -768,37 +789,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    访问速度慢的同学，可以访问国内版
+  <a href="#_2" class="md-nav__link">
+    环境变量的作用
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    🏡介绍
+  <a href="#_3" class="md-nav__link">
+    设置环境变量
   </a>
   
-    <nav class="md-nav" aria-label="🏡介绍">
+    <nav class="md-nav" aria-label="设置环境变量">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#httprunner-v3x" class="md-nav__link">
-    httprunner v3.x 交流群
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    设计哲学
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    主要特征
+    在终端中预设环境变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    [推荐]通过 .env 文件设置环境变量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    引用环境变量
+  </a>
+  
+    <nav class="md-nav" aria-label="引用环境变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#env_1" class="md-nav__link">
+    指定.env执行暂未找到运行方法
   </a>
   
 </li>
@@ -821,44 +855,87 @@
               
                 
 
-<h2 id="_1"><strong>访问速度慢的同学，可以访问<a href="https://ontheway-cool.gitee.io/httprunner3doc_cn/">国内版</a> </strong></h2>
-<h1 id="_2">🏡介绍</h1>
-<h3 id="httprunner-v3x">httprunner v3.x 交流群</h3>
-<p>微信群：</p>
-<p><img src="https://user-images.githubusercontent.com/18527679/152918340-03983d15-c439-40f2-b600-957c1592766b.png" width = "400" height = "500" alt="微信群" align=center /></p>
-<p>如果微信群二维码失效，可加个人微信(lzonthewaycool)拉入，添加个人微信时请说清楚来意，否则可能不会通过，谢谢。</p>
-<p>群号:907448825（QQ群已满）</p>
-<hr />
-<blockquote>
-<p><font color=black>全文来自<a href="https://docs.httprunner.org/">httprunner v3.x英文文档</a> 和 <a href="https://v2.httprunner.org/">httprunner x2.x中文文档</a> </font></p>
-</blockquote>
-<p>HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架，只需编写维护一份 YAML/JSON 脚本，即可实现自动化测试、性能测试、线上监控、持续集成等多种测试需求。</p>
-<blockquote>
-<p>该文档站点与最新版本相对应3.x。</p>
-</blockquote>
-<h2 id="_3">设计哲学</h2>
+<h1 id="_1">环境变量</h1>
+<h2 id="_2">环境变量的作用</h2>
+<p>在自动化测试中，有时需要借助环境变量实现某些特定的目的，常见的场景包括：</p>
 <ul>
-<li>约定优于配置</li>
-<li>投入产出比很重要</li>
-<li>拥抱开源，依赖<a href="https://2.python-requests.org/en/master/">requests</a> ，<a href="https://docs.pytest.org/en/stable/">pytest</a> ，<a href="https://pydantic-docs.helpmanual.io/">pydantic</a> ，<a href="https://docs.qameta.io/allure/">allure</a> 和 <a href="https://locust.io/">locust</a> 。</li>
+<li>切换测试环境</li>
+<li>切换测试配置</li>
+<li>存储敏感数据（从<a href="../security/">信息安全</a> 的角度出发）</li>
 </ul>
-<h2 id="_4">主要特征</h2>
-<ul>
-<li>继承的所有强大功能<a href="https://2.python-requests.org/en/master/">requests</a> ，只需以人工方式获得乐趣即可处理HTTP（S）。</li>
-<li>以YAML或JSON格式定义测试用例，<a href="https://docs.pytest.org/en/stable/">pytest</a> 以简洁优雅的方式运行。</li>
-<li>在<a href="https://httparchive.org/">HAR</a> 支持下记录并生成测试用例。</li>
-<li>支持variables/ extract/ validate/hooks机制，以创建非常复杂的测试方案。</li>
-<li>使用debugtalk.py插件，任何功能都可以在测试用例的任何部分使用。</li>
-<li>使用<a href="https://jmespath.org/">jmespath</a> ，提取和验证json响应从未如此简单。</li>
-<li>有了<a href="https://docs.pytest.org/en/stable/">pytest</a> ，数百个插件随时可用。</li>
-<li>使用<a href="https://docs.qameta.io/allure/">allure</a> ，测试报告可以非常强大。</li>
-<li>通过重复使用<a href="https://locust.io/">locust</a> ，您可以进行性能测试，而无需进行额外的工作。</li>
-<li>支持CLI命令，与CI/CD完美结合。</li>
-</ul>
-<hr />
-<table><tr><td bgcolor="yellow" onclick="window.open('https://www.ontheway.cool/');"><font size="3">也欢迎大家来参观个人博客(点击跳转)，主要记录个人技术、生活、理财相关的心得体会。</font></td></tr></table>
+<h2 id="_3">设置环境变量</h2>
+<h3 id="_4">在终端中预设环境变量</h3>
+<p>使用环境变量之前，需要先在系统中设置环境变量名称和值，传统的方式为使用 export 命令（Windows系统中使用 set 命令）：</p>
+<pre><code class="language-shell">$ export UserName=admin
+$ echo $UserName
+admin
+$ export Password=123456
+$ echo $Password
+123456
+</code></pre>
+<p>然后，在程序中就可以对系统中的环境变量进行读取。</p>
+<pre><code class="language-shell">$ python
+&gt;&gt;&gt; import os
+&gt;&gt;&gt; os.environ[&quot;UserName&quot;]
+'admin'
+</code></pre>
+<h3 id="env">[推荐]通过 .env 文件设置环境变量</h3>
+<p>除了这种方式，HttpRunner 还借鉴了 <a href="https://docs.pipenv.org/advanced/#automatic-loading-of-env">pipenv 加载 .env 的方式</a> 。</p>
+<p>默认情况下，在自动化测试项目的根目录中，创建 .env 文件，并将敏感数据信息放置到其中，存储采用 name=value 的格式：
+脚手架生成的接口测试项目中，会自动生成.env文件，可直接在.env中添加环境变量:
+<img alt="img_5.png" src="../img_5.png" /></p>
+<p><font color="red">注意：.env不允许有空行，可以注释掉不需要的变量</font></p>
+<h2 id="_5">引用环境变量</h2>
+<p>在 HttpRunner 中内置了函数 environ（简称 ENV），可用于在 YAML/JSON 脚本中直接引用环境变量。</p>
+<pre><code class="language-yaml">teststeps:
+-
+    name: login
+    request:
+        url: http://host/api/login
+        method: POST
+        headers:
+            Content-Type: application/json
+        json:
+            username: ${ENV(UserName)}
+            password: ${ENV(Password)}
+        validate:
+            - eq: [status_code, 200]
+</code></pre>
+<p>若还需对读取的环境变量做进一步处理，则可以在 debugtalk.py 通过 Python 内置的函数 os.environ 对环境变量进行引用，然后再实现处理逻辑。</p>
+<p>例如，若发起请求的密码需要先与密钥进行拼接并生成 MD5，那么就可以在 debugtalk.py 文件中实现如下函数：</p>
+<pre><code class="language-python">import os
 
-<p><a href="https://www.ontheway.cool/"><img alt="img_3.png" src="img_3.png" title="个人博客" /></a></p>
+def get_encrypt_password():
+    raw_passwd = os.environ[&quot;Password&quot;]
+    PROJECT_KEY = os.environ[&quot;PROJECT_KEY&quot;])
+    password = (raw_passwd + PROJECT_KEY).encode('ascii')
+    return hmac.new(password, hashlib.sha1).hexdigest()
+</code></pre>
+<p>然后，在 YAML/JSON 格式的测试用例中，就可以通过${func()}的方式引用环境变量的值了。</p>
+<pre><code class="language-yaml">teststeps:
+-
+    name: login
+    request:
+        url: http://host/api/login
+        method: POST
+        headers:
+            Content-Type: application/json
+        json:
+            username: ${ENV(UserName)}
+            password: ${get_encrypt_password()}
+        validate:
+            - eq: [status_code, 200]
+</code></pre>
+<h3 id="env_1">指定.env执行暂未找到运行方法</h3>
+<p><font color="red">注意：httprunner v2.x支持，但是v3.x暂不支持以下方式运行指定.env。</font></p>
+<p>若需加载不位于自动化项目根目录中的 .env，或者其它名称的 .env 文件（例如 production.env），可以采用 --dot-env-path 参数指定文件路径：</p>
+<pre><code class="language-shell">$ hrun /path/to/testcase.yml --dot-env-path /path/to/.env --log-level debug
+INFO     Loading environment variables from /path/to/.env
+DEBUG    Loaded variable: UserName
+DEBUG    Loaded variable: Password
+DEBUG    Loaded variable: PROJECT_KEY
+...
+</code></pre>
 
               
             </article>
@@ -876,15 +953,30 @@
   
     <nav class="md-footer__inner md-grid" aria-label="页脚">
       
+        
+        <a href="../hook/" class="md-footer__link md-footer__link--prev" aria-label="上一页: hook机制" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              hook机制
+            </div>
+          </div>
+        </a>
+      
       
         
-        <a href="install/" class="md-footer__link md-footer__link--next" aria-label="下一页: 安装" rel="next">
+        <a href="../testcase-layer/" class="md-footer__link md-footer__link--next" aria-label="下一页: 测试用例分层" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              安装
+              测试用例分层
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -928,12 +1020,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "assets/javascripts/workers/search.092fa1f6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.092fa1f6.min.js"}</script>
     
     
-      <script src="assets/javascripts/bundle.e3b2bf44.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e3b2bf44.min.js"></script>
       
-        <script src="js/baidu-tongji.js"></script>
+        <script src="../../js/baidu-tongji.js"></script>
       
         <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
       
