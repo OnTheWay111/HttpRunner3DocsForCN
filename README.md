@@ -9,6 +9,6 @@
 
 
 ### httprunner v3.x 使用者交流群
-![image](https://user-images.githubusercontent.com/18527679/161704309-c2cf1b84-b2d5-499c-9f90-3098821038fa.png)
+![image](https://user-images.githubusercontent.com/18527679/163321844-6ea0753b-7392-4ceb-9e9c-f86dc6b59b0a.png)
 
 
